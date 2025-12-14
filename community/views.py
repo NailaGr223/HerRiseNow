@@ -204,7 +204,7 @@ def adminappform(request):
 #           )
 #         return redirect('contact')
 #     return render(request, 'contactform.html')
-def contact(request):
-    return render(request, 'contact.html')
+# def contact(request):
+#     return render(request, 'contact.html')
 
 

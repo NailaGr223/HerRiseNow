@@ -5,7 +5,7 @@ from community import views
 urlpatterns = [
     path('', views.index, name='index'),
     path('about/', views.about, name='about'),
-    path('contact/', views.contact, name='contact'),
+    path('contactform/', views.contactform, name='contactform'),
     path('careermentorshipform/', views.careermentorshipform, name='careermentorshipform'),
     path('peermentorshipform/', views.peermentorshipform, name='peermentorshipform'),
     path('chooseyourcareermentor/', views.chooseyourcareermentor, name='chooseyourcareermentor'),
