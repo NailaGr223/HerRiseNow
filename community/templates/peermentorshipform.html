@@ -1,0 +1,256 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+
+  <style>
+    :root {
+      --primary: #d946ef;
+      --secondary: #8b5cf6;
+      --accent: #ec4899;
+      --dark: #1a1a2e;
+    }
+    body {
+      background: linear-gradient(135deg, #fce7f3, #f0d6ff);
+      min-height: 100vh;
+      font-family: 'Roboto', sans-serif;
+    }
+    .form-card {
+      background: white;
+      border-radius: 32px;
+      box-shadow: 0 30px 80px rgba(0,0,0,0.18);
+      max-width: 680px;
+      margin: 3rem auto 6rem;
+      overflow: hidden;
+    }
+    .form-header {
+      background: linear-gradient(135deg, var(--accent), #f43f5e);
+      color: white;
+      padding: 4rem 2rem;
+      text-align: center;
+    }
+    .text-gradient {
+      background: linear-gradient(90deg, #fff, #fddfff);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .form-body { padding: 3.5rem 3rem; }
+    .btn-submit {
+      background: linear-gradient(135deg, var(--accent), #f43f5e);
+      border: none;
+      padding: 1.1rem 3.5rem;
+      font-size: 1.3rem;
+      font-weight: 600;
+      border-radius: 50px;
+      transition: all 0.3s ease;
+    }
+    .btn-submit:hover {
+      transform: translateY(-6px);
+      box-shadow: 0 22px 50px rgba(244, 63, 94, 0.5);
+    }
+    .mentor-img {
+      width: 48px;
+      height: 48px;
+      border-radius: 50%;
+      object-fit: cover;
+      border: 3px solid var(--primary);
+    }
+    .highlight-box {
+      background: #fff0f8;
+      border-left: 5px solid var(--primary);
+      padding: 1.2rem 1.5rem;
+      border-radius: 0 16px 16px 0;
+      font-size: 0.98rem;
+    }
+  </style>
+{% endblock %}
+{% block content %}
+
+  <!-- HERO -->
+  <section class="py-5 text-center text-white" style="background: linear-gradient(135deg, var(--accent), #f43f5e);">
+    <div class="container py-5">
+      <h1 class="display-4 fw-bold">Join a Peer Mentorship Circle</h1>
+      <p class="lead">Connect with women your age or life stage — grow together</p>
+    </div>
+  </section>
+
+  <!-- FORM -->
+  <div class="container py-5">
+    <div class="form-card">
+
+      <div class="form-header">
+        <i class="bi bi-people-fill fs-1 mb-4"></i>
+        <h1 class="display-5 fw-bold text-gradient">Apply for Peer Mentorship</h1>
+        <p class="lead opacity-90 mb-0">Choose a sister who feels like home</p>
+      </div>
+
+       <form action="{% url 'submitpeermentorshipform' %}" method="POST">
+       {% csrf_token %}
+       <input type="hidden" name="form_type" value="Peer Mentorship">
+       <input type="hidden" name="_next" value="{% url 'mentorship' %}">
+    
+          <!-- Full Name -->
+          <div class="mb-4">
+            <label class="form-label fw-bold">Full Name *</label>
+            <input type="text" name="entry.123456789" class="form-control form-control-lg" placeholder="e.g. Aisha Mohamed" required>
+          </div>
+
+          <!-- Email -->
+          <div class="mb-4">
+            <label class="form-label fw-bold">Gmail Address *</label>
+            <input type="email" name="entry.987654321" class="form-control form-control-lg" placeholder="name@gmail.com" required>
+          </div>
+
+          <!-- Phone -->
+          <div class="mb-4">
+            <label class="form-label fw-bold">Phone (WhatsApp preferred) *</label>
+            <input type="tel" name="entry.112233445" class="form-control form-control-lg" placeholder="+254 712 345 678" required>
+          </div>
+
+          <!-- CHOOSE YOUR PEER MENTOR -->
+          <div class="mb-4">
+            <label class="form-label fw-bold">Choose Your Preferred Peer Mentor *</label>
+            <select name="entry.556677889" class="form-select form-select-lg" required>
+              <option value="" disabled selected>Select a sister who inspires you</option>
+
+              <option  src="assets/img/Naila.jpg" alt="Naila" class="mentor-img">
+                Naila Abdulhakim · University Student · Mombasa · Writing,Tech,Mindset 
+              </option>
+              <option data-img="https://images.unsplash.com/photo-1573497019940-1c28c88b4f3e?w=800" value="Ms.Fatma">
+                Fatma Abdulmajid · Young Mother · Nahda,Sharjah · Being a Mother, Raising Children Without Passing Down Genarational Trauma
+              </option>
+              <!-- <option data-img="https://images.unsplash.com/photo-1581404913221-6a9f2d4d9d8b?w=800" value="Sarah W.">
+                Sarah W. – 31 · Teacher & New Mom · Eldoret · Family & Career Balance
+              </option>
+              <option data-img="https://images.unsplash.com/photo-1590650516494-0c8e4a4dd67e?w=800" value="Zainab O.">
+                Zainab O. – 25 · Tech Enthusiast · Kisumu · Coding & Confidence
+              </option> -->
+              <option value="No preference – match me with someone similar">
+                No preference – surprise me with the best match!
+              </option>
+            </select>
+          </div>
+
+          <!-- Age Range -->
+          <div class="mb-4">
+            <label class="form-label fw-bold">Your Age Range *</label>
+            <select name="entry.998877665" class="form-select form-select-lg" required>
+              <option value="" disabled selected>Select your age group</option>
+              <option>15–18</option>
+              <option>19–24</option>
+              <option>25–30</option>
+              <option>31–40</option>
+              <option>41–50</option>
+              <option>50+</option>
+            </select>
+          </div>
+
+          <!-- What do you want to grow in? -->
+          <div class="mb-4">
+            <label class="form-label fw-bold">What do you most want to grow in? *</label>
+            <textarea name="entry.443322110" class="form-control form-control-lg" rows="4" 
+                      placeholder="e.g. confidence, career, faith, relationships, healing..." required></textarea>
+          </div>
+
+          <!-- Highlight -->
+          <div class="highlight-box mb-4 text-center">
+            <strong>We match you in small circles of 4–6 women</strong><br>
+            You’ll be contacted within 5 days
+          </div>
+
+          <!-- Submit -->
+          <div class="text-center">
+            <button type="submit" class="btn btn-submit text-white fw-bold">
+              Submit & Join a Circle
+            </button>
+          </div>
+
+          <p class="text-center text-muted mt-5 small">
+            100% free • Private • Safe space for women only
+          </p>
+        </form>
+      </div>
+    </div>
+  </div>
+  {% endblock %}
+
+  {% block scripts %}
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+  </script>
+  <script>
+  // Redirect to mentorship.html after Google Form submission
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector("form");
+    
+    form.addEventListener("submit", function (e) {
+      // Show thank you message
+      e.preventDefault(); // Stop normal submission temporarily
+      
+      // Optional: Show a nice thank you overlay
+      const thankYou = `
+        <div style="position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);color:white;display:flex;align-items:center;justify-content:center;z-index:9999;flex-direction:column;padding:2rem;text-align:center;">
+          <i class="bi bi-heart-fill fs-1 text-accent mb-3" style="color:#ec4899;"></i>
+          <h1 class="display-5 fw-bold">Thank You, Sister!</h1>
+          <p class="lead">Your application has been submitted.<br>We’ll match you with your peer circle soon.</p>
+          <p>Redirecting you back to Mentorship...</p>
+        </div>
+      `;
+      document.body.insertAdjacentHTML('beforeend', thankYou);
+
+      // Submit the form for real
+      setTimeout(() => {
+        form.submit();
+      }, 800);
+
+      // Redirect after 3 seconds (Google Forms finishes submitting)
+      setTimeout(() => {
+        window.location.href= "{% url 'mentorship' %}";
+      }, 3000);
+    });
+  });
+</script>
+<script>
+  // PERFECT redirect after Google Form submission
+  document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector("form");
+
+    form.addEventListener("submit", function (e) {
+      e.preventDefault(); // Stop normal submit
+
+      // 1. Show beautiful thank you
+      document.body.innerHTML = `
+        <div style="min-height:100vh;background:linear-gradient(135deg,#fce7f3,#f0d6ff);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:2rem;padding:2rem;text-align:center;">
+          <i class="bi bi-heart-fill" style="font-size:4rem;color:#ec4899;"></i>
+          <h1 class="display-4 fw-bold text-gradient" style="background:linear-gradient(90deg,#ec4899,#d946ef);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">
+            Thank You, Sister!
+          </h1>
+          <p class="lead">Your application was submitted successfully.</p>
+          <p>Redirecting you back to Mentorship in <span id="countdown">3</span> seconds...</p>
+        </div>
+      `;
+
+      // 2. Submit the real form (in background)
+      const formData = new FormData(form);
+      fetch(form.action, {
+        method: "POST",
+        body: formData,
+        mode: "no-cors"  // Important for Google Forms
+      });
+
+      // 3. Countdown + redirect
+      let seconds = 3;
+      const countdown = setInterval(() => {
+        seconds--;
+        document.getElementById("countdown").textContent = seconds;
+        if (seconds <= 0) {
+          clearInterval(countdown);
+          window.location.href = "{% url 'mentorship' %}";  // This WILL work now
+        }
+      }, 1000);
+    });
+  });
+</script>
+  {% endblock %}

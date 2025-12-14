@@ -1,0 +1,307 @@
+{% extends "base.html" %}
+{% load static %}
+{% block content %}
+
+  <!-- Main Content -->
+  <main class="main">
+
+    <!-- Hero Section -->
+    <section class="hero-section">
+      <div class="container hero-container">
+        <div class="row align-items-center">
+          <div class="col-lg-6">
+            <div class="hero-content" data-aos="fade-up">
+              <h1>HerRiseNow</h1>
+              <p>Emergency GBV Helpline⬇️</p>
+              <div class="hero-buttons mt-4">
+                <a href="tel:+254734079994" class="call-btn"> 🆘NEED HELP? CALL NOW</a>
+                <a href="{% static 'img/our story.mp4' %}" target="_blank"  class="video-link d-inline-flex align-items-center gap-2">
+  <span class="play-circle-icon">
+    <i class="bi bi-play-fill"></i>
+  </span>
+  Watch Our Story
+</a>
+               <!-- <video id="heroVideo" class="w-100" controls autoplay muted playsinline>
+  <source src="assets/video/intro.mp4" type="video/mp4">
+</video> -->
+
+<script>
+  document.getElementById("heroVideo").addEventListener("ended", function() {
+    window.location.href = "index.html";  // or any page
+  });
+</script>
+<script>
+  document.getElementById("heroVideo").addEventListener("ended", function() {
+    document.body.style.transition = "opacity 1.5s";
+    document.body.style.opacity = "0";
+    setTimeout(() => {
+      window.location.href = "index.html";
+    }, 1500);
+  });
+</script>
+                <!-- <a href="assets/img/our story.mp4" target="_blank" class="video-link"> ▶ Watch Our Story</a> -->
+              </div>
+            </div>
+          </div>
+          <div class="col-lg-6 text-center">
+            <img src="{% static 'img/white back.png' %}" alt="HerRiseNow" class="img-fluid" style="max-height: 400px;" data-aos="zoom-in" data-aos-delay="200">
+          </div>
+        </div>
+        <div class="row align-items-center">
+  <!-- Left side: Text + Buttons – slides in from left
+   <div class="col-lg-6">
+    <div class="hero-content" 
+         data-aos="fade-right" 
+         data-aos-duration="1000" 
+         data-aos-delay="200">
+      <h1>HerRiseNow</h1>
+      <p>Emergency GBV Helpline</p>
+      <div class="hero-buttons mt-4">
+        <a href="tel:+254734079994" class="call-btn">NEED HELP? CALL NOW</a>
+        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="video-link">Watch Our Story</a>
+      </div>
+    </div>
+  </div> -->
+  <!-- Hero Section – Fixed alignment + background + slide-in animations -->
+<!-- <section class="hero-section">
+  <div class="container hero-container py-5"> -->
+    
+    <!-- Main Hero Row -->
+    <!-- <div class="row align-items-center min-vh-100"> -->
+      
+      <!-- Left: Text & Buttons (slide in from left) -->
+      <!-- <div class="col-lg-6 order-lg-1 order-2">
+        <div class="hero-content"
+             data-aos="fade-right"
+             data-aos-duration="1200"
+             data-aos-delay="200">
+          <h1>HerRiseNow</h1>
+          <p class="lead fw-semibold">Emergency GBV Helpline</p>
+          <div class="hero-buttons mt-4">
+            <a href="tel:+254734079994" class="call-btn">NEED HELP? CALL NOW</a>
+            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="video-link ms-3">Watch Our Story</a>
+          </div>
+        </div>
+      </div> -->
+
+      <!-- Right: Logo/Image (slide in from right) -->
+      <!-- <div class="col-lg-6 order-lg-2 order-1 text-center mb-5 mb-lg-0">
+        <img src="assets/img/logo.png" 
+             alt="HerRiseNow" 
+             class="img-fluid" 
+             style="max-height: 480px;"
+             data-aos="fade-left"
+             data-aos-duration="1200"
+             data-aos-delay="400">
+      </div>
+    </div> -->
+
+    <!-- Floating Card (below hero content) -->
+    <!-- <div class="hero-metrics mt-5" data-aos="fade-up" data-aos-delay="800">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-8">
+            <div class="floating-card">
+              <div class="card-content">
+                <h2 class="display-4 fw-bold">
+                  <span class="text-primary">For</span> All Women
+                </h2>
+                <h2 class="display-4 fw-bold">
+                  All <span class="text-primary">Over</span> the World
+                </h2>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
+  </div> -->
+<!-- </section> -->
+
+  <!-- Right side: Image – slides in from right
+  <div class="col-lg-6 text-center">
+    <img src="assets/img/logo.png" 
+         alt="HerRiseNow" 
+         class="img-fluid" 
+         style="max-height: 420px;"
+         data-aos="fade-left"
+         data-aos-duration="1000"
+         data-aos-delay="400">
+  </div>
+</div>
+
+        <!Floating Card: For All Women... -->
+        <div class="hero-metrics" data-aos="fade-up" data-aos-delay="400">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <div class="floating-card">
+                  <div class="card-content">
+                    <h2 class="display-4 fw-bold">
+                      <span class="text-primary">For</span> All Women
+                    </h2>
+                    <h2 class="display-4 fw-bold">
+                      All <span class="text-primary">Over</span> the World
+                    </h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section> 
+
+    <!-- Features Section -->
+    <section class="hero-features">
+      <div class="container">
+        <div class="row">
+          <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
+            <div class="feature-item">
+              <div class="icon"><i class="bi bi-graph-up"></i></div>
+              <h4>Strategic Growth</h4>
+              <p>Accelerate your personal and professional journey with proven support systems</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
+            <div class="feature-item">
+              <div class="icon"><i class="bi bi-lightbulb"></i></div>
+              <h4>Safe Space</h4>
+              <p>Confidential counseling and emotional support when you need it most</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
+            <div class="feature-item">
+              <div class="icon"><i class="bi bi-people"></i></div>
+              <h4>Strong Community</h4>
+              <p>Join women supporting each other globally</p>
+            </div>
+          </div>
+          <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
+            <div class="feature-item">
+              <div class="icon"><i class="bi bi-shield-check"></i></div>
+              <h4>24/7 Emergency Help</h4>
+              <p>Immediate assistance for gender-based violence victims</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+     <!-- Our Programs / Services Section -->
+<section id="featured-services" class="featured-services section py-5" style="background: #fdf8ff;">
+  <div class="container">
+
+    <!-- Section Title -->
+    <div class="text-center mb-5" data-aos="fade-up">
+      <h2 class="display-5 fw-bold">
+        <span style="background: linear-gradient(90deg, #6d28d9, #d946ef); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+          Our Programs & Support
+        </span>
+      </h2>
+      <p class="lead text-muted">Safe, confidential, and empowering services designed for women, by women.</p>
+    </div>
+
+    <div class="row g-5 justify-content-center">
+
+      <!-- Service 1: Emergency Helpline -->
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
+        <div class="service-item text-center p-4 rounded-4 shadow-sm bg-white h-100 d-flex flex-column justify-content-between"
+             style="transition: all 0.4s ease; border: 1px solid #f0e6ff;">
+          <div>
+            <div class="service-icon mb-4">
+              <i class="bi bi-telephone-forward-fill fs-1" style="color: #ef4444;"></i>
+            </div>
+            <h3 class="h4 fw-bold text-dark">24/7 Emergency Helpline</h3>
+            <p class="text-muted small">Immediate support for survivors of gender-based violence. Call anytime, anywhere.</p>
+          </div>
+          <a href="tel:+254734079994" class="service-link mt-3 text-danger fw-bold d-inline-flex align-items-center gap-2">
+            <span>Call Now</span>
+            <i class="bi bi-arrow-right-circle-fill"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Service 2: Counseling -->
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
+        <div class="service-item text-center p-4 rounded-4 shadow-sm bg-white h-100 d-flex flex-column justify-content-between"
+             style="transition: all 0.4s ease; border: 1px solid #f0e6ff;">
+          <div>
+            <div class="service-icon mb-4">
+              <i class="bi bi-heart-pulse-fill fs-1" style="color: #d946ef;"></i>
+            </div>
+            <h3 class="h4 fw-bold text-dark">Counseling & Therapy</h3>
+            <p class="text-muted small">One-on-one emotional support from trained female counselors.</p>
+          </div>
+          <a href="{% url 'ourprograms' %}#counselling" class="service-link mt-3 fw-bold d-inline-flex align-items-center gap-2"
+             style="color: #8b5cf6;">
+            <span>Learn More</span>
+            <i class="bi bi-arrow-right-circle-fill"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Service 3: Mentorship -->
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
+        <div class="service-item text-center p-4 rounded-4 shadow-sm bg-white h-100 d-flex flex-column justify-content-between"
+             style="transition: all 0.4s ease; border: 1px solid #f0e6ff;">
+          <div>
+            <div class="service-icon mb-4">
+              <i class="bi bi-person-arms-up fs-1" style="color: #a855f7;"></i>
+            </div>
+            <h3 class="h4 fw-bold text-dark">Mentorship Program</h3>
+            <p class="text-muted small">Connect with successful women leaders who guide your growth.</p>
+          </div>
+          <a href="o{% url 'ourprograms' %}#mentorship" class="service-link mt-3 fw-bold d-inline-flex align-items-center gap-2"
+             style="color: #ec4899;">
+            <span>Join Now</span>
+            <i class="bi bi-arrow-right-circle-fill"></i>
+          </a>
+        </div>
+      </div>
+
+      <!-- Service 4: Community & Learning -->
+      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
+        <div class="service-item text-center p-4 rounded-4 shadow-sm bg-white h-100 d-flex flex-column justify-content-between"
+             style="transition: all 0.4s ease; border: 1px solid #f0e6ff;">
+          <div>
+            <div class="service-icon mb-4">
+              <i class="bi bi-people-fill fs-1" style="color: #6d28d9;"></i>
+            </div>
+            <h3 class="h4 fw-bold text-dark">Community & Learning</h3>
+            <p class="text-muted small">Workshops, webinars, and a safe sisterhood network worldwide.</p>
+          </div>
+          <a href="{% url 'community' %}" class="service-link mt-3 fw-bold d-inline-flex align-items-center gap-2"
+             style="color: #8b5cf6;">
+            <span>Explore Community</span>
+            <i class="bi bi-arrow-right-circle-fill"></i>
+          </a>
+        </div>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+  </main>
+ {% endblock %}
+ {% block scripts %}
+  <!-- Vendor JS -->
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'vendor/aos/aos.js' %}"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  </script>
+  <script src="{% static 'vendor/aos/aos.js' %}"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    easing: 'ease-out-quart',
+    once: true
+  });
+</script>
+{% endblock %}
+

@@ -1,0 +1,144 @@
+{% extends "base.html" %}
+{% load static %}
+{% block styles %}
+
+  <style>
+    :root {
+      --primary: #d946ef;
+      --secondary: #8b5cf6;
+      --dark: #1a1a2e;
+    }
+    .programs-hero {
+      background: linear-gradient(135deg, #fad0ff 0%, #c0b3ff 100%);
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      text-align: center;
+    }
+    .text-gradient {
+      background: linear-gradient(90deg, #6d28d9, #d946ef, #ec4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .program-card {
+      background: white;
+      border-radius: 24px;
+      padding: 3rem 2rem;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+      transition: all 0.4s ease;
+      height: 100%;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .program-card:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 30px 70px rgba(217,70,239,0.25);
+    }
+    .program-icon {
+      width: 100px; height: 100px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 2rem;
+      font-size: 3rem;
+      color: white;
+      box-shadow: 0 10px 30px rgba(217,70,239,0.4);
+    }
+  </style>
+  {% endblock %}
+  {% block content %}
+ <main>
+  <!-- Hero -->
+  <section class="programs-hero">
+    <div class="container">
+      <h1 class="display-4 fw-bold text-gradient" data-aos="fade-up">Our Programs</h1>
+      <p class="lead fs-3 text-dark opacity-90 mt-4" data-aos="fade-up" data-aos-delay="100">
+        Empowering women through mentorship, healing, and lifelong learning.
+      </p>
+    </div>
+  </section>
+
+  <main class="py-5">
+    <div class="container">
+
+      <!-- Mentorship Section -->
+      <section id="mentorship" class="my-5">
+        <div class="program-card" data-aos="fade-up">
+          <div class="program-icon"><i class="bi bi-person-arms-up"></i></div>
+          <h2 class="h1 fw-bold text-gradient mb-4">Mentorship Program</h2>
+          <p class="lead fs-4 text-muted">
+            Connect one-on-one with successful women leaders in tech, business, leadership,art and more.
+          </p>
+          <p class="fs-5">
+            Whether you're starting your career, switching fields, or aiming for the C-suite — our mentors have been where you are and will guide you forward with wisdom, strategy, and sisterhood.
+          </p>
+          <a href="{% url 'mentorship' %}" target="_parent" class="btn btn-lg mt-4" style="background: var(--primary); color: white; border: none; padding: 0.8rem 2rem; border-radius: 50px;">
+            Apply for Mentorship
+          </a>
+        </div>
+      </section>
+
+      <!-- Counseling Section -->
+      <section id="counseling" class="my-5">
+        <div class="program-card" data-aos="fade-up">
+          <div class="program-icon"><i class="bi bi-heart-pulse-fill"></i></div>
+          <h2 class="h1 fw-bold text-gradient mb-4">Counseling & Emotional Support</h2>
+          <p class="lead fs-4 text-muted">
+            Safe, confidential, judgment-free space to heal and grow.
+          </p>
+          <p class="fs-5">
+            Professional female counselors available for GBV survivors, trauma recovery, anxiety, self-worth, or just someone to talk to. You are not alone.
+          </p>
+          <a href="{% url 'counseling' %}" target="_parent" class="btn btn-lg mt-4 rounded-pill px-5 text-white"
+   style="background: #a855f7; border: none;">
+            Get Support
+</a>
+          </a>
+        </div>
+      </section>
+
+      <!-- Learn Section -->
+      <section id="learn" class="my-5">
+        <div class="program-card" data-aos="fade-up">
+          <div class="program-icon"><i class="bi bi-book-fill"></i></div>
+          <h2 class="h1 fw-bold text-gradient mb-4">Learn & Grow</h2>
+          <p class="lead fs-4 text-muted">
+            Free and low-cost courses, workshops, and resources for lifelong learning.
+          </p>
+          <p class="fs-5">
+            From digital skills and financial literacy to public speaking and entrepreneurship — we partner with global platforms and local experts to bring you world-class education at little or no cost.
+          </p>
+          <a href="{% url 'learn' %}" target="_parent" class="btn btn-lg mt-4" style="background: var(--secondary); color: white; border: none; padding: 0.8rem 2rem; border-radius: 50px;">
+            Explore Courses
+          </a>
+        </div>
+      </section>
+
+    </div>
+    
+
+ </main>
+ {% endblock %}
+  {% block scripts %}
+
+  <!-- Vendor JS -->
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'vendor/aos/aos.js' %}"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  </script>
+  <script src="{% static 'vendor/aos/aos.js' %}"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    easing: 'ease-out-quart',
+    once: true
+  });
+</script>
+  {% endblock %}

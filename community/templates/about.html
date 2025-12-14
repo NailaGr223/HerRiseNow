@@ -1,0 +1,213 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+  <style>
+    :root { --primary: #d946ef; --secondary: #8b5cf6; --danger: #e247f0; --dark: #1a1a2e; }
+    .about-hero { 
+      background: linear-gradient(135deg, #fad0ff 0%, #c0b3ff 100%);
+      min-height: 80vh; 
+      display: flex; 
+      align-items: center;
+    }
+    .text-gradient { 
+      background: linear-gradient(90deg, #6d28d9, #d946ef, #ec4899); 
+      -webkit-background-clip: text; 
+      -webkit-text-fill-color: transparent; 
+      background-clip: text; 
+    }
+    .impact-card { 
+      background: white; 
+      border-radius: 20px; 
+      padding: 2.5rem; 
+      box-shadow: 0 15px 40px rgba(0,0,0,0.08);
+      transition: transform 0.4s ease;
+    }
+    .impact-card:hover { transform: translateY(-12px); }
+  </style>
+  {% endblock %}
+
+{% block content %}
+
+  
+ <main>
+    <main class="main">
+
+    <!-- About Hero -->
+    <section class="about-hero">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col-lg-6" data-aos="fade-right">
+            <h1 class="display-3 fw-bold text-gradient">We Are HerRiseNow</h1>
+            <p class="lead fs-4">Empowering women to rise above violence, inequality, and silence — together.</p>
+            <a href="tel:+254734079994" class="btn btn-primary btn-lg mt-3" style="background: linear-gradient(135deg, #8b5cf6, #d946ef); border: none;"> Interested in learning more? 📞
+</a>
+            <!-- <a href="tel:+254734079994" class="btn btn-danger btn-lg mt-3">Interested in learning more? Call Now</a> -->
+          </div>
+          <div class="col-lg-6 text-center" data-aos="fade-left">
+            <img src="{% static 'img/logo.png' %}" alt="HerRiseNow" class="img-fluid" style="max-height: 420px;">
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- About Content -->
+     <!-- About Content – all sections centered on anchor click -->
+<section class="py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10">
+
+        <!-- Section 1: About HerRiseNow -->
+        <div id="abouti" class="impact-card mb-5 text-center" data-aos="fade-up">
+          <h2 class="text-gradient display-5 fw-bold mb-4">About HerRiseNow</h2>
+          <div class="mx-auto" style="max-width: 900px;">
+            <p class="lead fs-5 text-muted">
+              HerRiseNow is a non-profit, non-governmental organization dedicated to advancing <strong>gender equality (SDG 5)</strong> and bridging the gender gap across all fields.
+            </p>
+            <p class="fs-5">
+              We provide <strong>mentorship</strong> from successful women to those just starting their journey — in tech, business, leadership, and beyond.<br><br>
+              We <strong>strongly condemn gender-based violence (GBV)</strong> and operate a <strong>toll-free emergency helpline</strong> that connects survivors directly to trained responders and authorities.<br><br>
+              Confidential <strong>counseling services</strong> are available for GBV survivors and any woman who simply needs someone to talk to.
+            </p>
+          </div>
+        </div>
+
+        <!-- Section 2: Our Next Step -->
+        <div id="nextstep" class="impact-card mb-5 text-center" data-aos="fade-up" data-aos-delay="200">
+          <h2 class="text-gradient display-5 fw-bold mb-4">Our Next Step</h2>
+          <div class="mx-auto" style="max-width: 800px;">
+            <p class="fs-5">
+              We are working on expanding this platform to include:
+            </p>
+            <ul class="fs-5 text-muted" style="display: inline-block; text-align: left;">
+              <li><strong>Free & low-cost legal aid</strong> for women facing GBV or discrimination</li>
+              <li><strong>Free online learning</strong> in partnership with global education institutions</li>
+              <li>Growing our network of <strong>mentors, counselors, and peer mentors</strong> worldwide</li>
+            </ul>
+            <p class="fs-5">The future is female — and we’re building it together.</p>
+          </div>
+        </div>
+
+        <!-- Section 3: Our Impact -->
+        <div id="impact" class="impact-card text-center" data-aos="fade-up" data-aos-delay="400">
+          <h2 class="text-gradient display-5 fw-bold mb-4">Our Impact</h2>
+          <div class="mx-auto" style="max-width: 800px;">
+            <p class="lead fs-3">Stay tuned — we’re just getting started.</p>
+            <p class="fs-5 text-muted">Real stories. Real change. Coming soon.</p>
+            <!-- <a href="impact.html" class="btn btn-outline-primary btn-lg mt-3">See Our Impact →</a> -->
+          </div>
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+     <!-- About Content – with working anchor links -->
+<!-- <section class="py-5">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-lg-10"> -->
+
+        <!-- Section 1: About HerRiseNow -->
+        <!-- <div id="about" class="impact-card mb-5" data-aos="fade-up">
+          <h2 class="text-gradient display-5 fw-bold mb-4">About HerRiseNow</h2>
+          <p class="lead fs-5 text-muted">
+            HerRiseNow is a non-profit, non-governmental organization dedicated to advancing <strong>gender equality (SDG 5)</strong> and bridging the gender gap across all fields.
+          </p>
+          <p class="fs-5">
+            We provide <strong>mentorship</strong> from successful women to those just starting their journey — in tech, business, leadership, and beyond.<br><br>
+            We <strong>strongly condemn gender-based violence (GBV)</strong> and operate a <strong>toll-free emergency helpline</strong> that connects survivors directly to trained responders and authorities.<br><br>
+            Confidential <strong>counseling services</strong> are available for GBV survivors and any woman who simply needs someone to talk to.
+          </p>
+        </div> -->
+
+        <!-- Section 2: Our Next Step -->
+        <!-- <div id="nextstep" class="impact-card mb-5" data-aos="fade-up" data-aos-delay="200">
+          <h2 class="text-gradient display-5 fw-bold mb-4">Our Next Step</h2>
+          <p class="fs-5">
+            We are working on expanding this platform to include:
+          </p>
+          <ul class="fs-5 text-muted">
+            <li><strong>Free & low-cost legal aid</strong> for women facing GBV or discrimination</li>
+            <li><strong>Free online learning</strong> in partnership with global education institutions</li>
+            <li>Growing our network of <strong>mentors, counselors, and peer mentors</strong> worldwide</li>
+          </ul>
+          <p class="fs-5">The future is female — and we’re building it together.</p>
+        </div> -->
+
+        <!-- Section 3: Our Impact -->
+        <!-- <div id="impact" class="impact-card text-center" data-aos="fade-up" data-aos-delay="400">
+          <h2 class="text-gradient display-5 fw-bold mb-4">Our Impact</h2>
+          <p class="lead fs-3">Stay tuned — we’re just getting started.</p>
+          <p class="fs-5 text-muted">Real stories. Real change. Coming soon.</p> -->
+          <!-- <a href="impact.html" class="btn btn-outline-primary btn-lg mt-3">See Our Impact</a> -->
+        </div>
+
+      </div>
+    </div>
+  </div>
+</section>
+    <!-- <section class="py-5">
+      <div class="container">
+        <div class="row justify-content-center">
+          <div class="col-lg-10">
+
+            <div class="impact-card mb-5" data-aos="fade-up">
+              <h2 class="text-gradient display-5 fw-bold mb-4">About HerRiseNow</h2>
+              <p class="lead fs-5 text-muted">
+                HerRiseNow is a non-profit, non-governmental organization dedicated to advancing <strong>gender equality (SDG 5)</strong> and bridging the gender gap across all fields.
+              </p>
+              <p class="fs-5">
+                We provide <strong>mentorship</strong> from successful women to those just starting their journey — in tech, business, leadership, and beyond.<br><br>
+                We <strong>strongly condemn gender-based violence (GBV)</strong> and operate a <strong>toll-free emergency helpline</strong> that connects survivors directly to trained responders and authorities.<br><br>
+                Confidential <strong>counseling services</strong> are available for GBV survivors and any woman who simply needs someone to talk to.
+              </p>
+            </div>
+
+            <div class="impact-card mb-5" data-aos="fade-up" data-aos-delay="200">
+              <h2 class="text-gradient display-5 fw-bold mb-4">Our Next Step</h2>
+              <p class="fs-5">
+                We are working on expanding this platform to include:
+              </p>
+              <ul class="fs-5 text-muted">
+                <li><strong>Free & low-cost legal aid</strong> for women facing GBV or discrimination</li>
+                <li><strong>Free online learning</strong> in partnership with global education institutions</li>
+                <li>Growing our network of <strong>mentors, counselors, and peer mentors</strong> worldwide</li>
+              </ul>
+              <p class="fs-5">The future is female — and we’re building it together.</p>
+            </div>
+
+            <div class="impact-card text-center" data-aos="fade-up" data-aos-delay="400">
+              <h2 class="text-gradient display-5 fw-bold mb-4">Our Impact</h2>
+              <p class="lead fs-3">Stay tuned — we’re just getting started.</p>
+              <p class="fs-5 text-muted">Real stories. Real change. Coming soon.</p> -->
+              <!-- <a href="impact.html" class="btn btn-outline-primary btn-lg mt-3">See Our Impact →</a> -->
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+  </main>
+  {% endblock %}
+
+{% block scripts %}
+  <!-- Vendor JS -->
+  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
+  <script src="assets/vendor/aos/aos.js"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  </script>
+  <script src="assets/vendor/aos/aos.js"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    easing: 'ease-out-quart',
+    once: true
+  });
+</script>
+{% endblock %}

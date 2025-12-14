@@ -1,0 +1,173 @@
+{% extends "base.html" %}
+{% load static %}
+{% block styles %}
+
+ <style>
+    :root { --primary: #d946ef; --secondary: #8b5cf6; --accent: #ec4899; --dark: #1a1a2e; }
+    .hero-contact {
+      background: linear-gradient(135deg, #fad0ff 0%, #d4bbff 100%);
+      min-height: 75vh;
+      display: flex;
+      align-items: center;
+      text-align: center;
+    }
+    .text-gradient {
+      background: linear-gradient(90deg, #6d28d9, #d946ef, #ec4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .contact-card {
+      background: white;
+      border-radius: 28px;
+      padding: 3rem 2.5rem;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.12);
+      max-width: 900px;
+      margin: 0 auto;
+    }
+    .emergency-btn {
+      background: #ef4444;
+      color: white !important;
+      padding: 1.3rem 3rem;
+      border-radius: 50px;
+      font-size: 1.4rem;
+      font-weight: 700;
+      box-shadow: 0 15px 40px rgba(239,68,68,0.5);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 15px 40px rgba(239,68,68,0.5); }
+      50% { box-shadow: 0 15px 60px rgba(239,68,68,0.7); }
+      100% { box-shadow: 0 15px 40px rgba(239,68,68,0.5); }
+    }
+    .btn-submit {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border: none;
+      padding: 1rem 3rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.2rem;
+    }
+    .btn-submit:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 15px 35px rgba(217,70,239,0.4);
+    }
+  </style>
+{% endblock %}
+
+  
+{% block content %}
+
+  
+ <main>
+  <!-- Hero -->
+  <section class="hero-contact">
+    <div class="container">
+      <h1 class="display-3 fw-bold text-gradient" data-aos="fade-up">Get in Touch</h1>
+      <p class="lead fs-2 mt-4 text-dark opacity-90" data-aos="fade-up" data-aos-delay="100">
+        We’re here to listen, support, and help you rise
+      </p>
+      <a href="tel:+254734079994" class="emergency-btn d-inline-block mt-4">
+        NEED HELP NOW? CALL 24/7
+      </a>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="py-5 bg-light">
+    <div class="container">
+      <div class="contact-card" data-aos="fade-up">
+
+        <div class="row g-5">
+          <!-- Contact Info -->
+          <div class="col-lg-5">
+            <h3 class="fw-bold text-gradient mb-4">Contact Information</h3>
+            <div class="mb-4">
+              <i class="bi bi-telephone-fill fs-3 text-primary me-3"></i>
+              <div>
+                <p class="mb-0 fw-bold">Emergency Helpline</p>
+                <a href="tel:+254734079994" class="fs-4 text-danger">+254 734 079 994</a>
+                <p class="small text-muted">Available 24/7</p>
+              </div>
+            </div>
+            <div class="mb-4">
+              <i class="bi bi-envelope-fill fs-3 text-primary me-3"></i>
+              <div>
+                <p class="mb-0 fw-bold">Email Us</p>
+                <a href="mailto:herrisenow@gmail.com" class="text-dark">herrisenow@gmail.com</a>
+              </div>
+            </div>
+            <div class="mb-4">
+              <i class="bi bi-geo-alt-fill fs-3 text-primary me-3"></i>
+              <div>
+                <p class="mb-0 fw-bold">Location</p>
+                <p class="text-muted">Mombasa, Kenya<br>Serving women worldwide</p>
+              </div>
+            </div>
+            <div class="mt-5">
+              <p class="lead">We respond within 24 hours</p>
+            </div>
+          </div>
+
+          <!-- Contact Form -->
+          <div class="col-lg-7">
+            <h3 class="fw-bold text-gradient mb-4">Send Us a Message</h3>
+            <form action="{% url 'submitcontactform' %}" method="POST" class="needs-validation" novalidate>
+             {% csrf_token %}
+             <input type="hidden" name="form_type" value="General Contact">
+    
+   
+             <div class="row g-3">
+              <div class="col-md-6">
+               <input type="text" name="name" class="form-control form-control-lg" placeholder="Your Name" required>
+              </div>
+        <div class="col-md-6">
+            <input type="email" name="email" class="form-control form-control-lg" placeholder="Your Email" required>
+        </div>
+        <div class="col-12">
+            <input type="text" name="subject" class="form-control form-control-lg" placeholder="Subject">
+        </div>
+        <div class="col-12">
+            <textarea name="message" class="form-control form-control-lg" rows="6" placeholder="Your Message" required></textarea>
+        </div>
+        <!-- keep your honey-pot fields if you want -->
+        <input type="text" name="_honey" style="display:none">
+        <input type="hidden" name="_captcha" value="false">
+        <input type="hidden" name="_next" value="{% url 'contact' %}">
+        
+        <div class="col-12 text-end">
+            <button type="submit" class="btn btn-submit text-white shadow-lg">Send Message</button>
+        </div>
+    </div>
+</form>
+          </div>
+        </div>
+
+      </div>
+    </div>
+
+  
+ </main>
+  {% endblock %}
+  {% block scripts %}
+
+  <!-- Vendor JS -->
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'vendor/aos/aos.js' %}"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  </script>
+  <script src="{% static 'vendor/aos/aos.js' %}"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    easing: 'ease-out-quart',
+    once: true
+  });
+</script>
+{% endblock %}
+</body>
+</html>

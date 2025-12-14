@@ -1,0 +1,192 @@
+{% extends "base.html" %}
+{% load static %}
+{% block styles %}
+  <style>
+    :root {
+      --primary: #d946ef;
+      --secondary: #8b5cf6;
+      --accent: #ec4899;
+      --soft: #f8f0ff;
+      --dark: #1a1a2e;
+    }
+    .hero-counseling {
+      background: linear-gradient(135deg, #f3e8ff, #e0d4ff);
+      min-height: 75vh;
+      display: flex;
+      align-items: center;
+      text-align: center;
+    }
+    .text-gradient {
+      background: linear-gradient(90deg, #a855f7, #d946ef, #ec4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .counselor-card {
+      background: white;
+      border-radius: 28px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+      transition: all 0.4s ease;
+    }
+    .counselor-card:hover {
+      transform: translateY(-12px);
+      box-shadow: 0 30px 70px rgba(168,85,247,0.25);
+    }
+    .counselor-img {
+      width: 100%;
+      height: 300px;
+      object-fit: cover;
+    }
+    .btn-counsel {
+      background: linear-gradient(135deg, #a855f7, #d946ef);
+      border: none;
+      padding: 1rem 2.5rem;
+      border-radius: 50px;
+      font-weight: 600;
+      font-size: 1.1rem;
+    }
+    .btn-counsel:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 35px rgba(168,85,247,0.4);
+    }
+    .emergency-btn {
+      background: #ef4444;
+      color: white !important;
+      padding: 1.2rem 3rem;
+      border-radius: 50px;
+      font-size: 1.4rem;
+      font-weight: 700;
+      box-shadow: 0 15px 40px rgba(239,68,68,0.5);
+      animation: pulse 2s infinite;
+    }
+    @keyframes pulse {
+      0% { box-shadow: 0 15px 40px rgba(239,68,68,0.5); }
+      50% { box-shadow: 0 15px 60px rgba(239,68,68,0.7); }
+      100% { box-shadow: 0 15px 40px rgba(239,68,68,0.5); }
+    }
+  </style>
+{% endblock %}
+{% block content %}
+
+  <!-- Hero -->
+  <section class="hero-counseling">
+    <div class="container">
+      <h1 class="display-3 fw-bold text-gradient" data-aos="fade-up">You Are Not Alone</h1>
+      <p class="lead fs-2 mt-4 text-dark opacity-90" data-aos="fade-up" data-aos-delay="100">
+        Safe, confidential counseling with women who truly understand
+      </p>
+      <a href="tel:+254734079994" class="emergency-btn text-white d-inline-block mt-4">
+        NEED HELP NOW? CALL 24/7
+      </a>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="py-5 bg-light">
+    <div class="container">
+
+      <!-- Intro -->
+      <div class="text-center mb-5" data-aos="fade-up">
+        <p class="lead fs-4 text-muted max-w-4xl mx-auto">
+          Whether you're healing from trauma, feeling overwhelmed, or just need someone to talk to — our trained female counselors are here for you. 
+          <strong>100% confidential. No judgment. Always safe.</strong>
+        </p>
+        <p class="text-muted mt-4 small">
+          All sessions are <strong>free or low-cost</strong> • Available via phone, WhatsApp, or video
+        </p>
+      </div>
+
+      <!-- Counselors -->
+      <div class="row g-5">
+
+        <!-- Counselor 1 -->
+        <!-- <div class="col-lg-6" data-aos="fade-up">
+          <div class="counselor-card d-flex flex-column flex-md-row">
+            <img src="https://images.unsplash.com/photo-1554151228-14d9def65654?w=800&auto=format&fit=crop" alt="Sister Maryam" class="counselor-img">
+            <div class="p-4 d-flex flex-column justify-content-center">
+              <h4 class="fw-bold">Sister Maryam Hassan</h4>
+              <p class="text-muted mb-2">Certified Trauma Counselor • 12 years experience</p>
+              <p class="small">Specializes in GBV recovery, anxiety, self-worth, Islamic counseling</p>
+              <a href="https://forms.gle/YOUR_COUNSELING_FORM?entry.123456789=Sister+Maryam" target="_blank"
+                 class="btn btn-counsel text-white mt-3">Book with Maryam</a>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- Counselor 2 -->
+        <div class="col-lg-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="counselor-card d-flex flex-column flex-md-row">
+            <img src="{% static 'img/Nahya.jpeg' %}" alt="Ms.Nahya" class="counselor-img">
+            <div class="p-4 d-flex flex-column justify-content-center">
+              <h4 class="fw-bold">Ms.Nahya Ebrahim</h4>
+              <p class="text-muted mb-2">B.A in Sociology</p>
+              <p class="small">Expert in depression, relationships, motherhood, career stress</p>
+              <a href="{% url 'counselingform' %}" target="_self"
+                 class="btn btn-counsel text-white mt-3">Book with Ms.Nahya</a>
+            </div>
+          </div>
+        </div>
+
+      </div>
+      <p class="text-muted">
+          Want to become a conselor? <a href="{% url 'contact' %}" class="text-primary fw-bold">Apply to join our panel</a>
+        </p>
+
+      <!-- Emergency & Info -->
+      <div class="text-center my-5 py-5 bg-white rounded-4 shadow">
+        <h3 class="text-gradient">In Crisis Right Now?</h3>
+        <p class="lead">Call our 24/7 Emergency Helpline — someone is always here</p>
+        <a href="tel:+254734079994" class="emergency-btn text-white">
+          CALL NOW!
+        </a>
+        
+      </div>
+     <div class="hero-metrics" data-aos="fade-up" data-aos-delay="400">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <div class="floating-card">
+                  <div class="card-content">
+                    <h2 class="display-4 fw-bold">
+                      <span class="text-primary">More</span> Counselors
+                    </h2>
+                    <h2 class="display-4 fw-bold">
+                      Are Set to<span class="text-primary"> Join</span> Us Soon!
+                    </h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+     </div>
+
+    </div>
+  </main>
+
+  
+
+  {% endblock %}
+  {% block scripts %}
+
+  <!-- Vendor JS -->
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'vendor/aos/aos.js' %}"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  </script>
+  <script src="{% static 'vendor/aos/aos.js' %}"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    easing: 'ease-out-quart',
+    once: true
+  });
+</script>
+{% endblock %}
+</body>
+</html>

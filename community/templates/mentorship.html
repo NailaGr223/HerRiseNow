@@ -1,0 +1,173 @@
+{% extends "base.html" %}
+{% load static %}
+{% block styles %}
+
+  <style>
+    :root {
+      --primary: #d946ef;
+      --secondary: #8b5cf6;
+      --accent: #ec4899;
+      --dark: #1a1a2e;
+    }
+    .hero-mentorship {
+      background: linear-gradient(135deg, #fad0ff 0%, #d4bbff 100%);
+      min-height: 75vh;
+      display: flex;
+      align-items: center;
+      text-align: center;
+    }
+    .text-gradient {
+      background: linear-gradient(90deg, #6d28d9, #d946ef, #ec4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .mentorship-box {
+      transition: all 0.4s ease;
+      cursor: pointer;
+      height: 100%;
+    }
+    .mentorship-box:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 25px 50px rgba(0,0,0,0.2) !important;
+    }
+    .card-mentor {
+      background: white;
+      border-radius: 28px;
+      padding: 3.5rem 2.5rem;
+      box-shadow: 0 25px 60px rgba(0,0,0,0.12);
+      max-width: 950px;
+      margin: 0 auto;
+    }
+    .icon-circle {
+      width: 110px; height: 110px;
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 2rem;
+      font-size: 3.5rem;
+      color: white;
+      box-shadow: 0 15px 35px rgba(217,70,239,0.4);
+    }
+    .scroll-margin { scroll-margin-top: 120px; }
+  </style>
+{% endblock %}
+
+
+  {% block content %}
+ <main>
+   <!-- Hero -->
+  <section class="hero-mentorship">
+    <div class="container">
+      <h1 class="display-3 fw-bold text-gradient" data-aos="fade-up">Mentorship Program</h1>
+      <p class="lead fs-2 mt-4 text-dark opacity-90" data-aos="fade-up" data-aos-delay="100">
+        Choose the path that feels right for you
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="py-5 bg-light">
+    <div class="container">
+
+      <!-- Two Clickable Boxes -->
+      <div class="row g-5 justify-content-center mb-5">
+        <!-- Career Mentorship -->
+        <div class="col-lg-5 col-md-6" data-aos="fade-up">
+          <a href="#career-mentorship" class="text-decoration-none">
+            <div class="mentorship-box p-5 rounded-4 shadow-lg text-center text-white h-100 d-flex flex-column justify-content-center"
+                 style="background: linear-gradient(135deg, #8b5cf6, #d946ef);">
+              <i class="bi bi-briefcase-fill fs-1 mb-4"></i>
+              <h3 class="fw-bold fs-2">Career Mentorship</h3>
+              <p class="mb-4 opacity-90">One-on-one with CEOs, engineers, doctors, entrepreneurs</p>
+              <span class="badge bg-white text-dark px-4 py-3 rounded-pill fs-5">Learn More →</span>
+            </div>
+          </a>
+        </div>
+
+        <!-- Peer Mentorship -->
+        <div class="col-lg-5 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <a href="#peer-mentorship" class="text-decoration-none">
+            <div class="mentorship-box p-5 rounded-4 shadow-lg text-center text-white h-100 d-flex flex-column justify-content-center"
+                 style="background: linear-gradient(135deg, #ec4899, #f43f5e);">
+              <i class="bi bi-people-fill fs-1 mb-4"></i>
+              <h3 class="fw-bold fs-2">Peer Mentorship</h3>
+              <p class="mb-4 opacity-90">Grow together with women your age or life stage</p>
+              <span class="badge bg-white text-dark px-4 py-3 rounded-pill fs-5">Learn More →</span>
+            </div>
+          </a>
+        </div>
+      </div>
+
+      <!-- Career Mentorship Details -->
+      <section id="career-mentorship" class="scroll-margin my-5">
+        <div class="card-mentor" data-aos="fade-up">
+          <div class="icon-circle"><i class="bi bi-trophy-fill"></i></div>
+          <h2 class="h1 fw-bold text-gradient mb-4">Career Mentorship</h2>
+          <p class="lead fs-4 text-muted">Get matched with a successful woman leader who’s been exactly where you want to go.</p>
+          <ul class="fs-5 text-muted list-unstyled">
+            <li class="mb-3"><i class="bi bi-check-circle-fill text-primary me-2"></i> Monthly 1-on-1 video calls</li>
+            <li class="mb-3"><i class="bi bi-check-circle-fill text-primary me-2"></i> Unlimited chat support</li>
+            <li class="mb-3"><i class="bi bi-check-circle-fill text-primary me-2"></i> Resume review, interview prep, salary negotiation</li>
+            <li class="mb-3"><i class="bi bi-check-circle-fill text-primary me-2"></i> 6–12 month structured program</li>
+          </ul>
+          <div class="text-center mt-5">
+            <a href="{% url 'chooseyourcareermentor' %}" target="_parent"
+               class="btn btn-lg rounded-pill px-5 py-3 text-white shadow-lg"
+               style="background: linear-gradient(135deg, #8b5cf6, #d946ef); font-size: 1.3rem;">
+              Apply for Career Mentorship
+            </a>
+          </div>
+        </div>
+      </section>
+
+      <!-- Peer Mentorship Details -->
+      <section id="peer-mentorship" class="scroll-margin my-5">
+        <div class="card-mentor" data-aos="fade-up">
+          <div class="icon-circle" style="background: linear-gradient(135deg, #ec4899, #f43f5e);">
+            <i class="bi bi-heart-fill"></i>
+          </div>
+          <h2 class="h1 fw-bold text-gradient mb-4">Peer Mentorship Circle</h2>
+          <p class="lead fs-4 text-muted">You don’t have to do it alone. Grow with sisters who truly understand you.</p>
+          <ul class="fs-5 text-muted list-unstyled">
+            <li class="mb-3"><i class="bi bi-check-circle-fill text-primary me-2"></i> Group of 3–6 women at similar stage</li>
+            <li class="mb-3"><i class="bi bi-check-circle-fill text-primary me-2"></i> Weekly group calls + private chat</li>
+            <li class="mb-3"><i class="bi bi-check-circle-fill text-primary me-2"></i> Accountability, emotional support, shared wins</li>
+            <li class="mb-3"><i class="bi bi-check-circle-fill text-primary me-2"></i> Perfect for students, new moms, career changers</li>
+          </ul>
+          <div class="text-center mt-5">
+            <a href="{% url 'chooseyourpeermentor' %}" target="_parent"
+               class="btn btn-lg rounded-pill px-5 py-3 text-white shadow-lg"
+               style="background: linear-gradient(135deg, #ec4899, #f43f5e); font-size: 1.3rem;">
+              Join a Peer Circle
+            </a>
+          </div>
+        </div>
+      </section>
+
+    </div>
+    
+
+ </main>
+  {% endblock %}
+  {% block scripts %}
+  <!-- Vendor JS -->
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'vendor/aos/aos.js' %}"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  </script>
+  <script src="{% static 'vendor/aos/aos.js' %}"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    easing: 'ease-out-quart',
+    once: true
+  });
+</script>
+  {% endblock %}

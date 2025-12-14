@@ -1,0 +1,219 @@
+{% extends "base.html" %}
+{% load static %}
+{% block styles %}
+<style>
+    :root {
+      --primary: #d946ef;
+      --secondary: #8b5cf6;
+      --accent: #ec4899;
+      --dark: #1a1a2e;
+    }
+    .hero-learn {
+      background: linear-gradient(135deg, #e0c3fc 0%, #c8b5ff 100%);
+      min-height: 75vh;
+      display: flex;
+      align-items: center;
+      text-align: center;
+    }
+    .text-gradient {
+      background: linear-gradient(90deg, #6d28d9, #d946ef, #ec4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .course-card {
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.12);
+      transition: all 0.4s ease;
+      height: 100%;
+    }
+    .course-card:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 30px 70px rgba(139,92,246,0.25);
+    }
+    .course-img {
+      height: 200px;
+      object-fit: cover;
+      width: 100%;
+    }
+    .badge-free {
+      background: #10b981;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+    }
+    .badge-low {
+      background: #f59e0b;
+      color: white;
+      padding: 0.4rem 1rem;
+      border-radius: 50px;
+      font-size: 0.9rem;
+    }
+    .btn-enroll {
+      background: linear-gradient(135deg, var(--primary), var(--secondary));
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+    }
+    .btn-enroll:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 35px rgba(217,70,239,0.4);
+    }
+  </style>
+{% endblock %}
+  
+{% block content %}
+
+  
+ <main>
+    <!-- Hero -->
+  <section class="hero-learn">
+    <div class="container">
+      <h1 class="display-3 fw-bold text-gradient" data-aos="fade-up">Learn & Grow</h1>
+      <p class="lead fs-2 mt-4 text-dark opacity-90" data-aos="fade-up" data-aos-delay="100">
+        Free & affordable courses to help you rise — no matter where you are
+      </p>
+    </div>
+  </section>
+
+  <!-- Main Content -->
+  <main class="py-5 bg-light">
+    <div class="container">
+
+      <!-- Intro -->
+      <div class="text-center mb-5" data-aos="fade-up">
+        <p class="lead fs-4 text-muted max-w-4xl mx-auto">
+          We partner with global platforms to bring you world-class education — many courses are <strong>100% free</strong>.
+        </p>
+      </div>
+
+      <!-- Courses Grid -->
+      <div class="row g-4">
+
+        <!-- Course 1 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="course-card d-flex flex-column h-100">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&auto=format&fit=crop" alt="Digital Skills" class="course-img">
+            <div class="p-4 flex-grow-1">
+              <span class="badge-free mb-3">100% FREE</span>
+              <h4 class="fw-bold">Digital Skills & Computer Basics</h4>
+              <p class="text-muted">Microsoft Word, Excel, Internet Safety, Google Tools & more</p>
+            </div>
+            <div class="p-4 pt-0">
+              <a href="{% url 'learnform' %}" target="_parent"
+                 class="btn btn-enroll text-white w-100 rounded-pill">Enroll Free</a>
+            </div>
+          </div>
+        </div>
+        
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="course-card d-flex flex-column h-100">
+            <img src="https://images.unsplash.com/photo-1522202176988-66273c2fd55f?w=800&auto=format&fit=crop" alt="Digital Skills" class="course-img">
+            <div class="p-4 flex-grow-1">
+              <span class="badge-free mb-3">100% FREE</span>
+              <h4 class="fw-bold">Public Speaking & Confidence</h4>
+              <p class="text-muted">Broaden your reach to bigger opportunities by building confidence</p>
+            </div>
+            <div class="p-4 pt-0">
+              <a href="{% url 'learnform' %}" target="_parent"
+                 class="btn btn-enroll text-white w-100 rounded-pill">Enroll Free</a>
+            </div>
+          </div>
+        </div>
+        
+
+        <!-- Course 2 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="course-card d-flex flex-column h-100">
+            <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?w=800&auto=format&fit=crop" alt="Finance" class="course-img">
+            <div class="p-4 flex-grow-1">
+              <span class="badge-free mb-3">FREE</span>
+              <h4 class="fw-bold">Leadership Skills</h4>
+              <p class="text-muted">We are natural leaders,why not reinforce it?</p>
+            </div>
+            <div class="p-4 pt-0">
+              <a href="{% url 'learnform' %}" target="_parent"
+                 class="btn btn-enroll text-white w-100 rounded-pill">Enroll Free</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Course 3 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="300">
+          <div class="course-card d-flex flex-column h-100">
+            <img src="https://images.unsplash.com/photo-1552581234-26160f608093?w=800&auto=format&fit=crop" alt="Business" class="course-img">
+            <div class="p-4 flex-grow-1">
+              <span class="badge-free mb-3">FREE</span>
+              <h4 class="fw-bold"> English Language / Communication</h4>
+              <p class="text-muted">Learn how to communicate effectively using the English Language</p>
+            </div>
+            <div class="p-4 pt-0">
+              <a href="{% url 'learnform' %}" target="_parent"
+                 class="btn btn-enroll text-white w-100 rounded-pill">Apply Now</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- More courses can be added here -->
+         <div class="hero-metrics" data-aos="fade-up" data-aos-delay="400">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <div class="floating-card">
+                  <div class="card-content">
+                    <h2 class="display-4 fw-bold">
+                      More <span class="text-primary">Courses</span> 
+                    </h2>
+                    <h2 class="display-4 fw-bold">
+                      <span class="text-primary">Loading!</span> 
+                    </h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      </div>
+
+      <!-- CTA -->
+      <div class="text-center my-5 py-5 bg-white rounded-4 shadow">
+        <h3 class="text-gradient">Want a course we don’t have?</h3>
+        <p class="lead">Tell us what you’d love to learn — we’ll make it happen!</p>
+        <a href="{% url 'contact' %}" class="btn btn-enroll text-white px-5 py-3 rounded-pill">
+          Request a Course
+        </a>
+      </div>
+
+    </div>
+  </main>
+  {% endblock %}
+    
+
+  {% block scripts %}
+
+  <!-- Vendor JS -->
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'vendor/aos/aos.js' %}"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  </script>
+  <script src="{% static 'vendor/aos/aos.js' %}"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    easing: 'ease-out-quart',
+    once: true
+  });
+</script>
+{% endblock %}
+</body>
+</html>

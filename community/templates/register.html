@@ -1,0 +1,218 @@
+{% extends "base.html" %}
+{% load static %}
+{% block styles %}
+
+  <style>
+    :root { --primary:#d946ef; --secondary:#8b5cf6; --accent:#ec4899; --dark:#1a1a2e; }
+    body { background:linear-gradient(135deg,#fce7f3,#f0d6ff); font-family:'Roboto',sans-serif; margin:0; }
+    .topbar { background:var(--dark); padding:0.5rem 0; }
+    .navbar { background:rgba(26,26,46,0.95)!important; backdrop-filter:blur(12px); }
+    .navbar-brand img { height:50px; }
+    .nav-link { color:white!important; font-weight:500; }
+    .nav-link:hover { color:var(--primary)!important; }
+
+    .register-container {
+      max-width:620px; margin:4rem auto; background:white;
+      border-radius:28px; overflow:hidden; box-shadow:0 25px 60px rgba(0,0,0,0.18);
+    }
+    .register-header {
+      background:linear-gradient(135deg,var(--primary),var(--secondary));
+      color:white; padding:3.5rem 2rem; text-align:center;
+    }
+    .text-gradient {
+      background:linear-gradient(90deg,#fff,#fddfff);
+      -webkit-background-clip:text; -webkit-text-fill-color:transparent; background-clip:text;
+    }
+    .nav-tabs { border:none; justify-content:center; padding:1.5rem 1rem 0; gap:10px; flex-wrap:wrap; }
+    .nav-tabs .nav-link {
+      border:none; border-radius:50px; padding:0.75rem 1.5rem; font-weight:600;
+      background:#f0e6ff; color:#555;
+    }
+    .nav-tabs .nav-link.active {
+      background:linear-gradient(135deg,var(--primary),var(--secondary)); color:white;
+    }
+    .tab-content { padding:2.5rem 3rem 3.5rem; }
+    .btn-register {
+      background:linear-gradient(135deg,var(--primary),var(--secondary));
+      border:none; border-radius:50px; padding:1rem; font-weight:600;
+      font-size:1.1rem; transition:all 0.3s;
+    }
+    .btn-register:hover { transform:translateY(-4px); box-shadow:0 15px 35px rgba(217,70,239,0.4); }
+    .price-tag { background:linear-gradient(135deg,var(--accent),#f43f5e); color:white; padding:1.5rem; border-radius:20px; text-align:center; }
+    .amount-btn.active { background:linear-gradient(135deg,var(--primary),var(--secondary))!important; color:white!important; }
+  </style>
+{% endblock %}
+{% block content %}
+
+  <main>
+    <div class="container">
+      <div class="register-container">
+
+        <div class="register-header">
+          <h1 class="display-5 fw-bold text-gradient">Create Your Account</h1>
+          <p class="lead opacity-90">Choose your role in our sisterhood</p>
+        </div>
+
+        <ul class="nav nav-tabs" id="roleTabs" role="tablist">
+          <li class="nav-item"><button class="nav-link active" data-bs-toggle="tab" data-bs-target="#user">User</button></li>
+          <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#partner">Partner</button></li>
+          <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#sponsor">Sponsor</button></li>
+          <li class="nav-item"><button class="nav-link" data-bs-toggle="tab" data-bs-target="#admin">Admin</button></li>
+        </ul>
+
+        <div class="tab-content">
+
+          <!-- USER -->
+          <div class="tab-pane fade show active" id="user">
+            <form action="{% url 'submituserappform' %}" method="POST" class="needs-validation" novalidate>
+              {% csrf_token %}
+             <input type="hidden" name="form_type" value="User Registration">
+             <input type="hidden" name="_next" value="{% url 'login' %}">
+
+              <div class="mb-4"><label class="form-label fw-bold">Full Name *</label><input type="text" name="full_name" class="form-control form-control-lg" required></div>
+              <div class="mb-4"><label class="form-label fw-bold">Email *</label><input type="email" name="email" class="form-control form-control-lg" required></div>
+              <div class="mb-4"><label class="form-label fw-bold">Password *</label><input type="password" name="password" class="form-control form-control-lg" minlength="8" required></div>
+              <button type="submit" class="btn btn-register w-100">Register as User</button>
+            </form>
+            <p class="text-center mt-4 text-success fw-bold">Free • Immediate access</p>
+          </div>
+
+     
+
+          <!-- PARTNER  -->
+          <div class="tab-pane fade" id="partner">
+            <form action="{% url 'submitpartnerappform' %}" method="POST" class="needs-validation" novalidate>
+             {% csrf_token %}
+             <input type="hidden" name="form_type" value="Partner Application">
+              <input type="hidden" name="_next" value="{% url 'login' %}">
+   
+              <div class="mb-4"><label class="form-label fw-bold">Your Name *</label><input type="text" name="full_name" class="form-control form-control-lg" required></div>
+              <div class="mb-4"><label class="form-label fw-bold">Email *</label><input type="email" name="email" class="form-control form-control-lg" required></div>
+              <div class="mb-4"><label class="form-label fw-bold">Institution / Organization *</label><input type="text" name="institution" class="form-control form-control-lg" required></div>
+              <div class="mb-4"><label class="form-label fw-bold">Service You Will Offer *</label><input type="text" name="service" class="form-control form-control-lg" placeholder="e.g. Legal aid, counseling, training..." required></div>
+              <div class="mb-4"><label class="form-label fw-bold">Password *</label><input type="password" name="password" class="form-control form-control-lg" minlength="8" required></div>
+              <button type="submit" class="btn btn-register w-100">Apply as Partner</button>
+            </form>
+            <p class="text-center mt-3 text-muted small">Your application will be reviewed within 48 hours</p>
+          </div>
+
+          <!-- SPONSOR – FULLY WORKING -->
+          <div class="tab-pane fade" id="sponsor">
+            <div class="price-tag"><h3>Become a Sponsor</h3><p>Your support changes lives</p></div>
+            <!-- <form id="sponsorForm" class="needs-validation" novalidate> -->
+            <form action="{% url 'submitsponserappform' %}" method="POST" class="needs-validation" novalidate>
+               {% csrf_token %}
+                <input type="hidden" name="form_type" value="Sponsor Registration">
+                <input type="hidden" name="_next" value="{% url 'login' %}">
+   
+                <div class="mb-4"><label class="form-label fw-bold">Name / Company *</label><input type="text" id="sponsor_name" class="form-control form-control-lg" required></div>
+                <div class="mb-4"><label class="form-label fw-bold">Email *</label><input type="email" id="sponsor_email" class="form-control form-control-lg" required></div>
+                <div class="mb-4"><label class="form-label fw-bold">Phone *</label><input type="tel" id="sponsor_phone" class="form-control form-control-lg" placeholder="+254..." required></div>
+                <div class="mb-4"><label class="form-label fw-bold">Password *</label><input type="password" id="sponsor_password" class="form-control form-control-lg" minlength="8" required></div>
+
+               <div class="mb-4">
+                <label class="form-label fw-bold">Choose Amount *</label>
+                <div class="row g-3 mb-3">
+                  <div class="col-4"><button type="button" class="btn btn-outline-primary w-100 amount-btn" data-amount="10">$10</button></div>
+                  <div class="col-4"><button type="button" class="btn btn-outline-primary w-100 amount-btn" data-amount="25">$25</button></div>
+                  <div class="col-4"><button type="button" class="btn btn-outline-primary w-100 amount-btn" data-amount="50">$50</button></div>
+                  <div class="col-4"><button type="button" class="btn btn-outline-primary w-100 amount-btn" data-amount="100">$100</button></div>
+                  <div class="col-4"><button type="button" class="btn btn-outline-primary w-100 amount-btn" data-amount="250">$250</button></div>
+                  <div class="col-4"><button type="button" class="btn btn-outline-primary w-100 amount-btn" data-amount="500">$500</button></div>
+                </div>
+                <div class="input-group input-group-lg">
+                  <span class="input-group-text">$</span>
+                  <input type="number" id="sponsor_amount" class="form-control" min="5" required>
+                  <select id="payment_frequency" class="form-select">
+                    <option value="once">One-time</option>
+                    <option value="monthly">Monthly</option>
+                    <option value="yearly">Yearly</option>
+                  </select>
+                </div>
+                <div class="text-center mt-3"><strong id="live-preview" style="color:var(--primary)">$0 one-time</strong></div>
+              </div>
+
+              <button type="submit" class="btn btn-register w-100">Proceed to Payment</button>
+            </form>
+          </div>
+
+          <!-- ADMIN  -->
+          <div class="tab-pane fade" id="admin">
+            <div class="alert alert-warning text-center">
+              Admin accounts require manual approval by the HerRiseNow team
+            </div>
+            <form action="{% url 'submitadminappform' %}" method="POST" class="needs-validation" novalidate>
+              {% csrf_token %}
+             <input type="hidden" name="form_type" value="Admin Access Request">
+             <input type="hidden" name="_next" value="{% url 'login' %}">
+    
+              <div class="mb-4"><label class="form-label fw-bold">Full Name *</label><input type="text" name="full_name" class="form-control form-control-lg" required></div>
+              <div class="mb-4"><label class="form-label fw-bold">Email *</label><input type="email" name="email" class="form-control form-control-lg" required></div>
+              <div class="mb-4"><label class="form-label fw-bold">Password *</label><input type="password" name="password" class="form-control form-control-lg" minlength="8" required></div>
+              <div class="mb-4"><label class="form-label fw-bold">Why do you need admin access? *</label>
+                <textarea name="reason" class="form-control" rows="5" placeholder="Explain your role and responsibilities..." required></textarea>
+              </div>
+              <button type="submit" class="btn btn-register w-100">Request Admin Access</button>
+            </form>
+            <p class="text-center mt-3 text-muted small">You will receive an email once approved</p>
+          </div>
+
+        </div>
+
+        <div class="text-center py-4 border-top bg-light">
+          Already have an account? <a href="{% url 'login' %}" style="color:var(--primary);font-weight:600;">Login here</a>
+        </div>
+      </div>
+    </div>
+  </main>
+  {% endblock %}
+
+  {% block scripts %}
+
+
+  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <script>
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Sponsor amount buttons
+    document.querySelectorAll('.amount-btn').forEach(b => {
+      b.addEventListener('click', () => {
+        document.querySelectorAll('.amount-btn').forEach(x => x.classList.remove('active'));
+        b.classList.add('active');
+        document.getElementById('sponsor_amount').value = b.dataset.amount;
+        updatePreview();
+      });
+    });
+
+    function updatePreview() {
+      const amt = document.getElementById('sponsor_amount').value || 0;
+      const freq = document.getElementById('payment_frequency').value;
+      const txt = freq === 'monthly' ? 'monthly' : freq === 'yearly' ? 'yearly' : 'one-time';
+      document.getElementById('live-preview').textContent = amt >= 5 ? `$${amt} ${txt}` : 'Choose amount';
+    }
+    document.getElementById('sponsor_amount').addEventListener('input', updatePreview);
+    document.getElementById('payment_frequency').addEventListener('change', updatePreview);
+
+    // Sponsor payment redirect
+    document.getElementById('sponsorForm').addEventListener('submit', e => {
+      e.preventDefault();
+      const amount = document.getElementById('sponsor_amount').value;
+      if (amount < 5) return alert("Minimum $5");
+      const name = document.getElementById('sponsor_name').value || "Supporter";
+      if (confirm(`Thank you ${name}! Proceed with $${amount} sponsorship?`)) {
+        location.href = `https://www.paypal.com/paypalme/YourPayPalHandle/${amount}USD`;
+      }
+    });
+
+    // Bootstrap validation
+    (() => {
+      'use strict';
+      document.querySelectorAll('.needs-validation').forEach(form => {
+        form.addEventListener('submit', event => {
+          if (!form.checkValidity()) { event.preventDefault(); event.stopPropagation(); }
+          form.classList.add('was-validated');
+        }, false);
+      });
+    })();
+  </script>
+  {% endblock %}

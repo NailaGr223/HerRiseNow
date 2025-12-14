@@ -1,0 +1,192 @@
+{% extends "base.html" %}
+{% load static %}
+{% block styles %}
+
+
+  <style>
+    :root { --primary: #d946ef; --secondary: #8b5cf6; --accent: #ec4899; --dark: #1a1a2e; }
+    .hero-community { background: linear-gradient(135deg, #fce7f3, #f0d6ff); min-height: 70vh; display: flex; align-items: center; text-align: center; }
+    .text-gradient { background: linear-gradient(90deg, #ec4899, #d946ef, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent; background-clip: text; }
+    .post-card { background: white; border-radius: 20px; padding: 1.8rem; box-shadow: 0 15px 40px rgba(0,0,0,0.08); margin-bottom: 1.5rem; transition: all 0.3s ease; }
+    .post-card:hover { transform: translateY(-8px); box-shadow: 0 25px 60px rgba(217,70,239,0.15); }
+    .post-avatar { width: 50px; height: 50px; border-radius: 50%; background: var(--primary); color: white; display: flex; align-items: center; justify-content: center; font-weight: bold; font-size: 1.3rem; }
+    .reply-card { background: #f8f0ff !important; border-left: 4px solid var(--primary); margin-left: 4rem; }
+    .btn-post { background: linear-gradient(135deg, var(--primary), var(--secondary)); border: none; padding: 1rem 2.5rem; border-radius: 50px; font-weight: 600; }
+    .action-btn { font-size: 0.9rem; opacity: 0.7; cursor: pointer; }
+    .action-btn:hover { opacity: 1; }
+  </style>
+{% endblock %}
+{% block content %}
+  
+ <main>
+  <!-- Hero -->
+  <section class="hero-community">
+    <div class="container">
+      <h1 class="display-3 fw-bold text-gradient" data-aos="fade-up">Welcome Home, Sister</h1>
+      <p class="lead fs-2 mt-4 text-dark opacity-90" data-aos="fade-up" data-aos-delay="100">
+        A safe space to share, heal, and rise together
+      </p>
+    </div>
+  </section>
+
+  <!-- Community Feed -->
+  <main class="py-5 bg-light">
+    <div class="container">
+
+      <!-- Post Form -->
+      <div class="card p-4 mb-5 shadow-lg border-0 rounded-4" data-aos="fade-up">
+        <h4 class="fw-bold text-gradient mb-4">Share Your Voice</h4>
+        <div class="row g-3">
+          <div class="col-md-6">
+            <input type="text" id="userName" class="form-control form-control-lg" placeholder="Your Name (or Anonymous)">
+          </div>
+          <div class="col-md-6">
+            <textarea id="userMessage" class="form-control form-control-lg" rows="3" placeholder="What's on your heart today?"></textarea>
+          </div>
+          <div class="col-12 text-end">
+            <button onclick="addPost()" class="btn btn-post text-white shadow-lg">
+              Post Message
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <!-- Posts Feed -->
+      <div id="postsFeed" class="mb-5"></div>
+
+    </div>
+  </main>
+  {% endblock %}
+
+  {% block scripts %}
+
+
+
+  <!-- Scripts -->
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'vendor/aos/aos.js' %}"></script>
+  <script>
+    AOS.init({ duration: 1000, once: true });
+    document.getElementById("year").textContent = new Date().getFullYear();
+
+    // Load posts on start
+    loadPosts();
+
+    function addPost() {
+      const name = document.getElementById("userName").value.trim() || "Anonymous Sister";
+      const message = document.getElementById("userMessage").value.trim();
+      if (!message) return alert("Please write something to share");
+
+      const posts = JSON.parse(localStorage.getItem("herRisePosts") || "[]");
+      const newPost = {
+        id: Date.now().toString(),
+        name: name,
+        message: message,
+        timestamp: new Date().toISOString(),
+        replies: []
+      };
+      posts.unshift(newPost);
+      localStorage.setItem("herRisePosts", JSON.stringify(posts));
+
+      document.getElementById("userName").value = "";
+      document.getElementById("userMessage").value = "";
+      loadPosts();
+    }
+
+    function loadPosts() {
+      const feed = document.getElementById("postsFeed");
+      const posts = JSON.parse(localStorage.getItem("herRisePosts") || "[]");
+
+      if (posts.length === 0) {
+        feed.innerHTML = `<div class="text-center py-5"><p class="lead text-muted">No posts yet — be the first to share!</p></div>`;
+        return;
+      }
+
+      feed.innerHTML = "";
+      posts.forEach(post => renderPost(post, feed));
+      AOS.refresh();
+    }
+
+    function renderPost(post, container) {
+      const postHTML = `
+        <div class="post-card" data-post-id="${post.id}">
+          <div class="d-flex align-items-start gap-3">
+            <div class="post-avatar flex-shrink-0">${post.name.charAt(0).toUpperCase()}</div>
+            <div class="flex-grow-1">
+              <div class="d-flex justify-content-between align-items-center mb-2">
+                <div>
+                  <h6 class="fw-bold mb-0">${post.name}</h6>
+                  <p class="text-muted small mb-0">Just now</p>
+                </div>
+                <div>
+                  <span onclick="replyTo('${post.id}', '${post.name}')" class="action-btn text-primary me-3">Reply</span>
+                  <span onclick="editPost('${post.id}')" class="action-btn me-3">Edit</span>
+                  <span onclick="deletePost('${post.id}')" class="action-btn text-danger">Delete</span>
+                </div>
+              </div>
+              <p class="mb-0 post-text">${post.message.replace(/\n/g, '<br>')}</p>
+            </div>
+          </div>
+        </div>
+      `;
+
+      container.innerHTML += postHTML;
+
+      // Render replies
+      if (post.replies && post.replies.length > 0) {
+        post.replies.forEach(reply => {
+          const replyHTML = `
+            <div class="post-card reply-card ms-5 mt-3">
+              <div class="d-flex gap-3">
+                <div class="post-avatar flex-shrink-0">Y</div>
+                <div class="flex-grow-1">
+                  <h6 class="fw-bold mb-1">You</h6>
+                  <p class="text-muted small mb-2">Just now</p>
+                  <p class="mb-0"><strong>@${post.name}</strong> ${reply.replace(/\n/g, '<br>')}</p>
+                </div>
+              </div>
+            </div>
+          `;
+          container.lastElementChild.insertAdjacentHTML('beforeend', replyHTML);
+        });
+      }
+    }
+
+    function replyTo(postId, authorName) {
+      const replyText = prompt(`Reply to ${authorName}:`, "");
+      if (!replyText || replyText.trim() === "") return;
+
+      const posts = JSON.parse(localStorage.getItem("herRisePosts") || "[]");
+      const post = posts.find(p => p.id === postId);
+      if (post) {
+        if (!post.replies) post.replies = [];
+        post.replies.push(replyText.trim());
+        localStorage.setItem("herRisePosts", JSON.stringify(posts));
+        loadPosts();
+      }
+    }
+
+    function editPost(id) {
+      const posts = JSON.parse(localStorage.getItem("herRisePosts") || "[]");
+      const post = posts.find(p => p.id === id);
+      if (!post) return;
+
+      const newMessage = prompt("Edit your message:", post.message);
+      if (newMessage && newMessage.trim() !== post.message) {
+        post.message = newMessage.trim();
+        localStorage.setItem("herRisePosts", JSON.stringify(posts));
+        loadPosts();
+      }
+    }
+
+    function deletePost(id) {
+      if (!confirm("Delete this post and all replies?")) return;
+      let posts = JSON.parse(localStorage.getItem("herRisePosts") || "[]");
+      posts = posts.filter(p => p.id !== id);
+      localStorage.setItem("herRisePosts", JSON.stringify(posts));
+      loadPosts();
+    }
+  </script>
+  {% endblock %}
+</body>
+</html>

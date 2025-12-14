@@ -1,0 +1,513 @@
+/* ========================================================= */
+/* assets/css/main.css – HerRiseNow Official Style           */
+/* ========================================================= */
+
+:root {
+  --primary: #d946ef;      /* Main pink-purple */
+  --secondary: #8b5cf6;    /* Purple */
+  --accent: #ec4899;       /* Hot pink */
+  --danger: #ef4444;       /* Emergency red */
+  --dark: #1a1a2e;
+  --light: #f8f9ff;
+  --gray: #64748b;
+  --white: #ffffff;
+  --gradient: linear-gradient(135deg, #fad0ff 0%, #c0b3ff 100%);
+  --text-gradient: linear-gradient(90deg, #6d28d9, #d946ef, #ec4899);
+}
+
+/* ========================================================= */
+/* Global Styles                                             */
+/* ========================================================= */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  color: var(--dark);
+  line-height: 1.6;
+  overflow-x: hidden;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: 'Playfair Display', serif;
+  font-weight: 800;
+  line-height: 1.2;
+}
+
+a {
+  transition: all 0.3s ease;
+}
+
+/* ========================================================= */
+/* Header & Navigation                                       */
+/* ========================================================= */
+
+.header {
+  background: transparent;
+  transition: all 0.4s ease;
+}
+
+.header.scrolled {
+  background: rgba(26, 26, 46, 0.95);
+  backdrop-filter: blur(12px);
+}
+
+.topbar {
+  background: var(--dark);
+  padding: 0.5rem 0;
+  font-size: 0.9rem;
+}
+
+.branding {
+  background: rgba(26, 26, 46, 0.95);
+  backdrop-filter: blur(12px);
+}
+
+.sitename {
+  font-family: 'Playfair Display', serif;
+  font-size: 2rem;
+  font-weight: 900;
+}
+
+.navmenu a {
+  color: white !important;
+  font-weight: 500;
+  padding: 0.5rem 1rem !important;
+}
+
+.navmenu a:hover,
+.navmenu a.active {
+  color: var(--primary) !important;
+}
+
+.navmenu .dropdown ul {
+  background: var(--dark);
+  border: none;
+  border-radius: 12px;
+  box-shadow: 0 10px 30px rgba(0,0,0,0.3);
+}
+
+.navmenu .dropdown ul a:hover {
+  background: var(--primary);
+  color: white !important;
+}
+
+/* ========================================================= */
+/* Hero Section                                              */
+/* ========================================================= */
+
+.hero-section {
+  min-height: 100vh;
+  background: var(--gradient);
+  position: relative;
+  display: flex;
+  align-items: center;
+  overflow: hidden;
+}
+.hero-section {
+  min-height: 100vh;
+  background: linear-gradient(135deg, #fad0ff 0%, #c0b3ff 100%);
+  position: relative;
+  display: flex;
+  align-items: center;
+}
+
+/* Ensures proper vertical centering on all screens */
+.min-vh-100 { min-height: 100vh; }
+
+/* Optional subtle background pattern */
+.hero-section::before {
+  content: '';
+  position: absolute;
+  top: 0; left: 0; right: 0; bottom: 0;
+  background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" width="100" height="100" viewBox="0 0 100 100"><circle cx="20" cy="20" r="8" fill="%23ec489920"/><circle cx="80" cy="80" r="12" fill="%236d28d920"/></svg>');
+  opacity: 0.3;
+  pointer-events: none;
+}
+
+.hero-content h1 {
+  font-size: 5.5rem;
+  background: var(--text-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  margin-bottom: 0.5rem;
+}
+
+.hero-content p {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: var(--dark);
+  margin-bottom: 2rem;
+}
+
+.call-btn {
+  display: inline-block;
+  background: var(--danger);
+  color: white;
+  padding: 1.1rem 2.5rem;
+  border-radius: 50px;
+  font-weight: 700;
+  font-size: 1.3rem;
+  text-decoration: none;
+  box-shadow: 0 12px 35px rgba(239, 68, 68, 0.4);
+  animation: pulse 2s infinite;
+}
+
+.call-btn:hover {
+  background: #dc2626;
+  transform: translateY(-3px);
+  box-shadow: 0 18px 45px rgba(239, 68, 68, 0.5);
+  color: white;
+}
+
+@keyframes pulse {
+  0% { box-shadow: 0 12px 35px rgba(239, 68, 68, 0.4); }
+  50% { box-shadow: 0 12px 50px rgba(239, 68, 68, 0.6); }
+  100% { box-shadow: 0 12px 35px rgba(239, 68, 68, 0.4); }
+}
+
+.video-link {
+  color: var(--secondary);
+  font-weight: 600;
+  text-decoration: underline;
+  font-size: 1.1rem;
+}
+
+.video-link:hover {
+  color: var(--primary);
+}
+
+/* Floating Card – "For All Women..." */
+.floating-card {
+  background: rgba(255, 255, 255, 0.97);
+  backdrop-filter: blur(16px);
+  border-radius: 28px;
+  padding: 3.5rem 2rem;
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.12);
+  border: 1px solid rgba(255, 255, 255, 0.8);
+  text-align: center;
+  margin-top: 6rem;
+  transition: transform 0.5s ease;
+}
+
+.floating-card:hover {
+  transform: translateY(-10px);
+}
+
+.floating-card .display-4 {
+  font-size: 4.2rem;
+  font-weight: 900;
+  line-height: 1.1;
+  margin: 0;
+}
+
+.floating-card .text-primary {
+  background: var(--text-gradient);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+}
+
+/* ========================================================= */
+/* Features Section                                          */
+/* ========================================================= */
+
+.hero-features {
+  padding: 120px 0;
+  background: white;
+}
+
+.feature-item {
+  background: white;
+  padding: 2.5rem 1.5rem;
+  border-radius: 24px;
+  text-align: center;
+  height: 100%;
+  transition: all 0.4s ease;
+  box-shadow: 0 5px 20px rgba(0,0,0,0.03);
+}
+
+.feature-item:hover {
+  transform: translateY(-15px);
+  box-shadow: 0 25px 50px rgba(139, 92, 246, 0.18);
+  background: var(--light);
+}
+
+.feature-item .icon {
+  width: 90px;
+  height: 90px;
+  border-radius: 50%;
+  background: linear-gradient(135deg, var(--secondary), var(--primary));
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto 1.8rem;
+  color: white;
+  font-size: 2.6rem;
+  box-shadow: 0 12px 30px rgba(139, 92, 246, 0.35);
+  transition: all 0.3s ease;
+}
+
+.feature-item:hover .icon {
+  transform: scale(1.12);
+  box-shadow: 0 18px 40px rgba(139, 92, 246, 0.45);
+}
+
+.feature-item h4 {
+  font-size: 1.4rem;
+  margin-bottom: 1rem;
+  color: var(--dark);
+}
+
+.feature-item p {
+  color: var(--gray);
+  font-size: 1rem;
+}
+
+/* ========================================================= */
+/* Responsive Adjustments                                    */
+/* ========================================================= */
+
+@media (max-width: 992px) {
+  .hero-content h1 { font-size: 4.5rem; }
+  .floating-card .display-4 { font-size: 3.5rem; }
+  .hero-features { padding: 100px 0; }
+}
+
+@media (max-width: 768px) {
+  .hero-content h1 { font-size: 3.8rem; }
+  .hero-content p { font-size: 1.4rem; }
+  .call-btn { 
+    display: block; 
+    text-align: center; 
+    margin: 0 auto 1rem;
+    width: fit-content;
+  }
+  .video-link { display: block; text-align: center; }
+  .floating-card { padding: 2.5rem 1.5rem; margin-top: 4rem; }
+}
+
+@media (max-width: 576px) {
+  .hero-content h1 { font-size: 3.2rem; }
+  .floating-card .display-4 { font-size: 2.8rem; }
+  .call-btn { font-size: 1.1rem; padding: 1rem 2rem; }
+}
+/* FINAL FIX – Perfect horizontal navbar + hover dropdown */
+@media (min-width: 992px) {
+  .navmenu .navbar-nav {
+    gap: 2.5rem !important;
+  }
+  .navmenu .dropdown:hover > .dropdown-menu {
+    display: block;
+    margin-top: 0.5rem;
+  }
+  .navmenu .dropdown-menu {
+    background: #1a1a2e;
+    border: none;
+    border-radius: 12px;
+    padding: 0.75rem 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  }
+  .navmenu .dropdown-item {
+    color: #ddd !important;
+    padding: 0.5rem 1.5rem;
+  }
+  .navmenu .dropdown-item:hover {
+    background: var(--primary);
+    color: white !important;
+  } */
+
+/* Service Cards Hover Effect */
+.service-item:hover {
+  transform: translateY(-12px) scale(1.02);
+  box-shadow: 0 20px 40px rgba(109, 40, 217, 0.15) !important;
+  border-color: var(--primary) !important;
+  background: linear-gradient(135deg, #fdf8ff 0%, #f5f0ff 100%);
+}
+.service-item .service-link {
+  transition: all 0.3s ease;
+}
+.service-item:hover .service-link {
+  transform: translateX(8px);
+}
+.hover-pink:hover { color: #ec4899 !important; transform: scale(1.2); transition: all 0.3s ease; }
+.text-pink { color: #d946ef; }
+.footer-section a { transition: color 0.3s ease; }
+.footer-section a:hover { color: #d946ef !important; }
+
+/* Perfect dropdown alignment fix */
+
+/* @media (min-width: 992px) {
+  .navmenu .dropdown-menu {
+    background: #1a1a2e !important;
+    border: none;
+    border-radius: 16px;
+    padding: 0.75rem 0;
+    margin-top: 12px !important;     /* small gap below the parent */
+    /* box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    min-width: 220px;
+    left: 50% !important;
+    right: auto !important; */ */
+       /* THIS IS THE KEY LINEtransform: translateX(-50%) !important; */
+  /* } */
+
+  /* .navmenu .dropdown:hover .dropdown-menu {
+    display: block;
+  }
+
+  .navmenu .dropdown-item {
+    color: #ddd !important;
+    padding: 0.6rem 1.5rem;
+  }
+  .navmenu .dropdown-item:hover {
+    background: var(--primary);
+    color: white !important;
+  }
+} */
+/* FINAL DROPDOWN FIX – perfectly centered under parent */
+/* @media (min-width: 992px) {
+  .navmenu .dropdown {
+    position: relative;
+  }
+
+  .navmenu .dropdown-menu {
+    background: #1a1a2e;
+    border: none;
+    border-radius: 16px;
+    padding: 0.75rem 0;
+    margin-top: 12px;
+    box-shadow: 0 15px 40px rgba(0,0,0,0.4);
+    min-width: 220px;
+    
+    /* These 4 lines are the magic */
+    /* left: 50% !important;
+    right: auto !important;
+    transform: translateX(-50%) !important;
+    top: 100% !important; */
+  /* } */ */
+
+  /* Show on hover */
+  /* .navmenu .dropdown:hover > .dropdown-menu {
+    display: block !important;
+  }
+
+  .navmenu .dropdown-item {
+    color: #ddd !important;
+    padding: 0.6rem 1.8rem;
+    text-align: center;
+  }
+  .navmenu .dropdown-item:hover {
+    background: #d946ef;
+    color: white !important;
+  }
+} */
+/* FINAL WORKING FIX – dropdown perfectly under its parent */
+/* @media (min-width: 992px) {
+  .navmenu .dropdown-menu {
+    left: 0 !important;           /* align to the left edge of the parent */
+    /* right: auto !important;
+    transform: none !important;   /* remove any translate that was breaking it */
+    /* margin-top: 10px; */
+  /* } */
+  /* .navmenu .dropdown:hover > .dropdown-menu {
+    display: block !important; }
+    /* Fix anchor links when you have a fixed/sticky header */
+html {
+  scroll-behavior: smooth;                    /* smooth scrolling */
+}
+
+[id] {
+  scroll-margin-top: 120px;                   /* pushes content down below fixed header */
+}
+/* Center all About sections when visited via anchor links */
+/* #about,
+#next-step,
+#impact {
+  scroll-margin-top: 140px;              /* Clears fixed header – same for all */
+  /* max-width: 800px;                      Keeps cards narrow and centered
+  margin-left: auto;                     Centers the card
+  margin-right: auto;
+  text-align: center;                    Centers headings & paragraphs
+} */
+
+/* #about ul,
+#next-step ul,
+#impact ul {
+  display: inline-block;                 Keeps bullet lists centered but neat
+  text-align: left;                      Aligns bullet text left for readability
+  font-size: 1.1rem;
+  list-style-position: inside;           Bullets stay inside the centered block */
+}
+
+/* Optional: Make text slightly larger for better readability */
+/* #about p,
+#next-step p,
+#impact p {
+  font-size: 1.1rem;
+  line-height: 1.8;
+} */ 
+ /* Center content inside anchored sections + fix header overlap */
+#about, #next-step, #impact {
+  scroll-margin-top: 140px;   /* clears the fixed navbar */
+}
+
+/* Optional: make lists look nice when centered */
+#next-step ul, #about ul, #impact ul {
+  display: inline-block;
+  text-align: left;
+}
+/* Make the whole card perfectly centered when scrolled to */
+#about,
+#next-step,
+#impact {
+  scroll-margin-top: 140px;           /* clears fixed header */
+}
+
+/* Center the entire impact-card */
+#about .impact-card,
+#next-step .impact-card,
+#impact .impact-card {
+  max-width: 900px;                   /* nice readable width */
+  margin-left: auto;
+  margin-right: auto;
+  padding: 3rem 2.5rem;
+  border-radius: 24px;
+  box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+}
+/* Make the whole card perfectly centered when scrolled to */
+#about,
+#next-step,
+#impact {
+  scroll-margin-top: 140px;           /* clears fixed header */
+}
+/* Fix: Home (or any active page) should be white, not purple */
+.navmenu .nav-link.active,
+.navmenu .nav-link:hover {
+  color: #d946ef !important;        /* purple only on hover OR active */
+}
+
+/* Normal state: all menu items white */
+.navmenu .nav-link {
+  color: white !important;
+}
+
+/* Optional: make active item stand out with a soft underline instead of full purple */
+.navmenu .nav-link.active {
+  position: relative;
+}
+.navmenu .nav-link.active::after {
+  content: '';
+  position: absolute;
+  bottom: -8px;
+  left: 50%;
+  transform: translateX(-50%);
+  width: 30px;
+  height: 3px;
+  background: #d946ef;
+  border-radius: 2px;
+}

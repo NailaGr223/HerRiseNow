@@ -1,0 +1,642 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HerRiseNow - Empowering Women Everywhere</title>
+  <meta name="description" content="Emergency GBV support, mentorship, and growth programs for women worldwide.">
+  <meta name="keywords" content="women empowerment, GBV helpline, mentorship, female entrepreneurs">
+
+  <!-- Favicons -->
+  <link href="{% static 'img/black filled.png' %}" rel="icon">
+  <link href="{% static 'img/logo.png' %}" rel="apple-touch-icon">
+
+  <!-- Google Fonts -->
+  <link href="https://fonts.googleapis.com" rel="preconnect">
+  <link href="https://fonts.gstatic.com" rel="preconnect" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Montserrat:wght@500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
+
+  <!-- Vendor CSS -->
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
+
+  <!-- Main CSS -->
+  <link href="{% static 'css/main.css' %}" rel="stylesheet">
+{% block styles %}
+  <style>
+    /* ============================================================= */
+    /* CUSTOM HERO + METRICS + FEATURES STYLES (Paste this in main.css or here) */
+    /* ============================================================= */
+     /* ============================= */
+/* Dropdown on Hover (Desktop)   */
+/* ============================= */
+/* @media (min-width: 992px) {        /* only on desktop */
+  /* .navmenu .dropdown {
+    position: relative;
+  }
+
+  .navmenu .dropdown:hover > ul {
+    display: block !important;    /* force show on hover */
+    /* opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  } */
+
+  /* .navmenu .dropdown > ul {
+    display: block;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+    margin-top: 0 !important;
+  } */ */ */
+/* } */
+/* FIX: Proper dropdown positioning & alignment after hover fix */
+/* @media (min-width: 992px) {
+  .navmenu .dropdown > ul {
+    display: block !important;
+    position: absolute;
+    left: 0;
+    top: 100%;
+    min-width: 200px;
+    padding: 0.5rem 0;
+    margin: 0;
+    background: #1a1a2e;
+    border-radius: 12px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(10px);
+    transition: all 0.3s ease;
+  }
+
+  .navmenu .dropdown:hover > ul {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+  } */
+
+  /* Ensures the main menu stays perfectly horizontal & centered */
+  /* .navmenu ul {
+    display: flex !important;
+    align-items: center;
+    gap: 2rem;
+  }
+
+  .navmenu ul li {
+    position: relative;
+  }
+} */
+ /* FINAL FIX – Perfect horizontal navbar + hover dropdown */
+/* @media (min-width: 992px) {
+  .navmenu .navbar-nav {
+    gap: 2.5rem !important;
+  }
+  .navmenu .dropdown:hover > .dropdown-menu {
+    display: block;
+    margin-top: 0.5rem;
+  }
+  .navmenu .dropdown-menu {
+    background: #1a1a2e;
+    border: none;
+    border-radius: 12px;
+    padding: 0.75rem 0;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.4);
+  }
+  .navmenu .dropdown-item {
+    color: #ddd !important;
+    padding: 0.5rem 1.5rem;
+  }
+  .navmenu .dropdown-item:hover {
+    background: var(--primary);
+    color: white !important;
+  }
+      } */
+    :root {
+      --primary: #d946ef;
+      --secondary: #8b5cf6;
+      --accent: #ec4899;
+      --dark: #1a1a2e;
+      --light-bg: #f8f9ff;
+    }
+
+    body {
+      font-family: 'Roboto', sans-serif;
+      color: var(--dark);
+    }
+
+    /* Hero Section */
+    .hero-section {
+      min-height: 100vh;
+      background: linear-gradient(135deg, )#c0b3ff 0%, rgb(151, 4, 151) 100%, url("{% static 'img/hero-bg.jpg' %}") center/cover no-repeat;
+      position: relative;
+      display: flex;
+      align-items: center;
+    }
+
+    .hero-container {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero-content h1 {
+      font-family: 'Playfair Display', serif;
+      font-size: 5.5rem;
+      font-weight: 900;
+      background: linear-gradient(90deg, #6d28d9, #d946ef, #ec4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+      margin-bottom: 0.5rem;
+    }
+
+    .hero-content p {
+      font-size: 1.5rem;
+      font-weight: 500;
+      color: #1a1a2e;
+      margin-bottom: 2rem;
+    }
+
+    .call-btn {
+      display: inline-block;
+      background: #ef4444;
+      color: white !important;
+      padding: 1rem 2rem;
+      border-radius: 50px;
+      font-weight: 700;
+      font-size: 1.3rem;
+      text-decoration: none;
+      box-shadow: 0 10px 30px rgba(239, 68, 68, 0.4);
+      transition: all 0.3s;
+    }
+
+    .call-btn:hover {
+      transform: scale(1.05);
+      background: #dc2626;
+      box-shadow: 0 15px 40px rgba(239, 68, 68, 0.5);
+    }
+
+    .video-link {
+      margin-left: 1rem;
+      color: purple;
+      font-weight: 600;
+      text-decoration: underline;
+    }
+
+    /* Floating Card (For All Women...) */
+    .hero-metrics {
+      margin-top: 4rem;
+    }
+
+    .floating-card {
+      background: rgba(255, 255, 255, 0.95);
+      backdrop-filter: blur(15px);
+      border-radius: 24px;
+      padding: 3rem 2rem;
+      box-shadow: 0 20px 50px rgba(0, 0, 0, 0.1);
+      border: 1px solid rgba(255, 255, 255, 0.7);
+      text-align: center;
+    }
+
+    .floating-card .display-4 {
+      font-size: 4rem;
+      font-weight: 900;
+      line-height: 1.1;
+      color: var(--dark);
+    }
+
+    .floating-card .text-primary {
+      background: linear-gradient(90deg, #6d28d9, #d946ef, #ec4899);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+
+    /* Features Section */
+    .hero-features {
+      padding: 120px 0;
+      background: white;
+    }
+
+    .feature-item {
+      padding: 2rem;
+      border-radius: 20px;
+      transition: all 0.4s ease;
+      text-align: center;
+    }
+
+    .feature-item:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 20px 40px rgba(109, 40, 217, 0.15);
+      background: #f8f9ff;
+    }
+
+    .feature-item .icon {
+      width: 90px; height: 90px;
+      border-radius: 50%;
+      background: linear-gradient(135deg, #a855f7, #ec4899);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      margin: 0 auto 1.5rem;
+      color: white;
+      font-size: 2.5rem;
+      box-shadow: 0 10px 25px rgba(168, 85, 247, 0.3);
+    }
+
+    .feature-item h4 {
+      font-weight: 700;
+      font-size: 1.4rem;
+      margin-bottom: 1rem;
+    }
+
+    /* Responsive */
+    @media (max-width: 992px) {
+      .hero-content h1 { font-size: 4rem; }
+      .floating-card .display-4 { font-size: 3rem; }
+    }
+
+    @media (max-width: 576px) {
+      .hero-content h1 { font-size: 3.2rem; }
+      .call-btn { display: block; margin-bottom: 1rem; text-align: center; }
+      .video-link { margin-left: 0; display: block; text-align: center; }
+    }
+    .play-circle-icon {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  width: 48px;
+  height: 48px;
+  background: #d946ef;
+  color: white;
+  font-size: 1.8rem;
+  border-radius: 50%;
+  box-shadow: 0 8px 20px rgba(217, 70, 239, 0.4);
+  transition: all 0.3s ease;
+}
+
+.play-circle-icon:hover {
+  background: #c026d3;
+  transform: scale(1.1);
+  box-shadow: 0 12px 30px rgba(217, 70, 239, 0.5);
+}
+
+.video-link {
+  color: #8b5cf6 !important;
+  font-weight: 600;
+  text-decoration: none;
+  font-size: 1.1rem;
+}
+
+.video-link:hover {
+  color: #d946ef !important;
+}
+  </style>
+  {% endblock %} 
+</head>
+<!-- Firebase SDK
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
+<script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-auth-compat.js"></script>
+
+<script>
+  // Your Firebase config (you get this after creating a project)
+  const firebaseConfig = {
+    apiKey: "AIzaSyXXXXXXXXXXXXXXXXXXXXXXXXXXXX",
+    authDomain: "herrisenow.firebaseapp.com",
+    projectId: "herrisenow",
+    storageBucket: "herrisenow.appspot.com",
+    messagingSenderId: "1234567890",
+    appId: "1:1234567890:web:abcdef1234567890"
+  };
+
+  // Initialize Firebase
+  firebase.initializeApp(firebaseConfig);
+  
+  // Track login state globally
+  let currentUser = null;
+  
+  firebase.auth().onAuthStateChanged((user) => {
+    currentUser = user;
+    if (user) {
+      document.body.classList.add('logged-in');
+      document.body.classList.remove('logged-out');
+    } else {
+      document.body.classList.add('logged-out');
+      document.body.classList.remove('logged-in');
+    }
+    // Update login/logout buttons
+    updateAuthButtons();
+  });
+
+  function updateAuthButtons() {
+    const loginBtn = document.querySelector('.login-btn');
+    const logoutBtn = document.querySelector('.logout-btn');
+    const userName = document.querySelector('.user-name');
+    if (currentUser) {
+      if (loginBtn) loginBtn.style.display = 'none';
+      if (logoutBtn) logoutBtn.style.display = 'block';
+      if (userName) userName.textContent = currentUser.displayName || currentUser.email;
+    } else {
+      if (loginBtn) loginBtn.style.display = 'block';
+      if (logoutBtn) logoutBtn.style.display = 'none';
+    }
+  }
+</script>
+<Login Popup Modal -->
+<!-- <div class="modal fade" id="loginModal" tabindex="-1">
+  <div class="modal-dialog modal-dialog-centered">
+    <div class="modal-content border-0 shadow-lg" style="border-radius: 20px;">
+      <div class="modal-header border-0 text-center d-block">
+        <h3 class="modal-title text-primary">Welcome Back</h3>
+        <p>Join the sisterhood – login to comment & connect</p>
+      </div>
+      <div class="modal-body text-center py-4">
+        <button class="btn btn-danger btn-lg w-100 mb-3" onclick="loginWithGoogle()">
+          Continue with Google
+        </button>
+        <button class="btn btn-outline-dark btn-lg w-100" onclick="loginWithEmail()">
+          Continue with Email
+        </button>
+        <p class="mt-4 text-muted small">
+          No account needed to browse. Login only to comment.
+        </p>
+      </div>
+    </div>
+  </div>
+</div> --> 
+
+<!-- <script>
+  function showLoginPopup() {
+    new bootstrap.Modal(document.getElementById('loginModal')).show();
+  }
+
+  function loginWithGoogle() {
+    const provider = new firebase.auth.GoogleAuthProvider();
+    firebase.auth().signInWithPopup(provider);
+  }
+
+  function loginWithEmail() {
+    const email = prompt("Enter your email:");
+    if (email) {
+      firebase.auth().sendSignInLinkToEmail(email, {
+        url: window.location.href,
+        handleCodeInApp: true
+      }).then(() => {
+        window.localStorage.setItem('emailForSignIn', email);
+        alert("Check your email for the magic link!");
+      });
+    }
+  }
+</script> -->
+
+<body class="index-page">
+
+  <!-- Header -->
+  <header id="header" class="header sticky-top">
+    <div class="topbar d-flex align-items-center" style="background: #1a1a2e;">
+      <div class="container d-flex justify-content-center justify-content-md-between">
+        <div class="social-links d-none d-md-flex">
+          <a href="https://www.linkedin.com/in/herrisenow-1b40b03a0/" class="linkedin text-white"><i class="bi bi-linkedin"></i></a>
+        </div>
+      </div>
+    </div>
+
+    <div class="branding" style="background: rgba(26, 26, 46, 0.95); backdrop-filter: blur(10px);">
+      <div class="container position-relative d-flex align-items-center justify-content-between py-3">
+        <a href="{% url 'index' %}" class="logo d-flex align-items-center text-white text-decoration-none">
+          <img src="{% static 'img/black filled.png' %}" alt="HerRiseNow Logo" height="50">
+          <h1 class="sitename ms-3 mb-0">HerRiseNow</h1>
+        </a>
+         <nav id="navmenu" class="navmenu">
+  <ul class="navbar-nav d-flex flex-row align-items-center gap-4 list-unstyled mb-0">
+    <li class="nav-item"><a href="{% url 'index' %}" class="nav-link  text-white">Home</a></li>
+    
+    <li class="nav-item dropdown">
+      <a href="{% url 'about' %}" class="nav-link text-white">About <i class="bi bi-chevron-down ms-1"></i></a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="{% url 'about' %}#abouti">About</a></li>
+        <li><a class="dropdown-item" href="{% url 'about' %}#nextstep">Our Next Step</a></li>
+        <li><a class="dropdown-item" href="{% url 'about' %}#impact">Our Impact</a></li>
+      </ul>
+    </li>
+
+    <li class="nav-item dropdown">
+      <a href="{% url 'ourprograms' %}" class="nav-link text-white">Our Programs <i class="bi bi-chevron-down ms-1"></i></a>
+      <ul class="dropdown-menu">
+        <li><a class="dropdown-item" href="{% url 'ourprograms' %}#mentorship">Mentorship</a></li>
+        <li><a class="dropdown-item" href="{% url 'ourprograms' %}#counseling">Counseling</a></li>
+        <li><a class="dropdown-item" href="{% url 'ourprograms' %}#learn">Learn</a></li>
+      </ul>
+    </li>
+
+   <li class="nav-item"><a href="{% url 'community' %}" class="nav-link text-white">Community</a></li>
+    <li class="nav-item"><a href="{% url 'contact' %}" class="nav-link text-white">Contact</a></li>
+    <li class="nav-item"><a href="{% url 'login' %}" class="btn btn-outline-light rounded-pill px-4">Login</a></li>
+
+    <!-- below is advanced login/logout button code -->
+
+
+  <!-- <a href="#" class="nav-link text-white login-btn" onclick="showLoginPopup()">Login</a>
+  <a href="#" class="nav-link text-white logout-btn d-none" onclick="firebase.auth().signOut()">Logout</a>
+  <span class="text-white ms-3 user-name"></span> -->
+
+  </ul>
+  <i class="mobile-nav-toggle d-xl-none bi bi-list text-white"></i>
+</nav>
+    <!-- <nav id="navmenu" class="navmenu">
+  <ul class="d-flex align-items-center list-unstyled mb-0 gap-4">
+    <li><a href="index.html" class="active text-white">Home</a></li>
+    <li class="dropdown">
+      <a href="#"><span class="text-white">About</span> <i class="bi bi-chevron-down toggle-dropdown text-white"></i></a>
+      <ul>
+        <li><a href="about.html">About</a></li>
+        <li><a href="nextstep.html">Our Next Step</a></li>
+        <li><a href="impact.html">Our Impact</a></li>
+      </ul>
+    </li>
+    <li class="dropdown">
+      <a href="#"><span class="text-white">Our Programs</span> <i class="bi bi-chevron-down toggle-dropdown text-white"></i></a>
+      <ul>
+        <li><a href="ourprograms.html#mentorship">Mentorship</a></li>
+        <li><a href="ourprograms.html#counselling">Counselling</a></li>
+        <li><a href="ourprograms.html#learn">Learn</a></li>
+      </ul>
+    </li>
+    <li><a href="contact.html" class="text-white">Contact</a></li>
+    <li><a href="community.html" class="text-white">Community</a></li>
+    <li><a href="login.html" class="btn btn-outline-light rounded-pill px-4">Login</a></li>
+  </ul>
+  <i class="mobile-nav-toggle d-xl-none bi bi-list text-white"></i>
+</nav> -->
+<!-- <nav id="navmenu" class="navmenu">
+          <ul class="d-flex align-items-center list-unstyled mb-0 gap-4"></ul>
+            <li><a href="index.html" class="active text-white">Home</a></li>
+            <li class="dropdown">
+              <a href="#"><span class="text-white">About</span> <i class="bi bi-chevron-down toggle-dropdown text-white"></i></a>
+              <ul>
+                <li><a href="about.html">About</a></li>
+                <li><a href="nextstep.html">Our Next Step</a></li>
+                <li><a href="impact.html">Our Impact</a></li>
+              </ul>
+            </li>
+            <li class="dropdown">
+              <a href="#"><span class="text-white">Our Programs</span> <i class="bi bi-chevron-down toggle-dropdown text-white"></i></a>
+              <ul>
+                <li><a href="ourprograms.html#mentorship">Mentorship</a></li>
+                <li><a href="ourprograms.html#counselling">Counselling</a></li>
+                <li><a href="ourprograms.html#learn">Learn</a></li>
+              </ul>
+            </li>
+            <li><a href="contact.html" class="text-white">Contact</a></li>
+            <li><a href="community.html" class="text-white">Community</a></li>
+            <li><a href="login.html" class="btn btn-outline-light rounded-pill px-4">Login</a></li>
+          </ul>
+          <i class="mobile-nav-toggle d-xl-none bi bi-list text-white"></i>
+        </nav> -->
+      </div>
+    </div>
+  </header> 
+
+  <!-- Main Content -->
+  <main class="main">
+    {% block content %}
+    {% endblock %}
+
+  </main>
+  <footer>
+    <!-- Footer -->
+<footer class="footer-section" style="background: #1a1a2e; color: #ddd; margin-top: 120px;">
+  <div class="container footer-top py-5">
+    <div class="row gy-5 text-center text-lg-start">
+
+      <!-- Column 1: Brand + Mission -->
+      <div class="col-lg-4 col-md-6 footer-about">
+        <a href="{% url 'index' %}" class="d-flex align-items-center justify-content-center justify-content-lg-start mb-4">
+          <img src="{% static 'img/white back.png' %}" alt="HerRiseNow" height="50" class="me-3">
+          <span class="sitename fw-bold fs-3 text-white">HerRiseNow</span>
+        </a>
+        <p class="mb-4 lead">
+          We stand with every woman, everywhere. Providing emergency support, counseling, mentorship, and a global sisterhood to help you rise stronger.
+        </p>
+        <div class="footer-contact">
+          <p class="mb-2"><strong>Emergency Helpline:</strong></p>
+          <p class="fs-4 text-danger fw-bold">+254 734 079 994</p>
+          <p class="mb-2"><strong>Email:</strong> <a href="mailto:herrisenow@gmail.com" class="text-white">herrisenow@gmail.com</a></p>
+        </div>
+      </div>
+
+      <!-- Column 2: Quick Links -->
+      <div class="col-lg-2 col-md-6 footer-links">
+        <h4 class="text-white mb-4">Quick Links</h4>
+        <ul class="list-unstyled">
+          <li class="mb-3"><i class="bi bi-chevron-right text-primary me-2"></i> <a href="{% url 'index' %}" class="text-light">Home</a></li>
+          <li class="mb-3"><i class="bi bi-chevron-right text-primary me-2"></i> <a href="{% url 'about' %}" class="text-light">About Us</a></li>
+          <li class="mb-3"><i class="bi bi-chevron-right text-primary me-2"></i> <a href="{% url 'ourprograms' %}" class="text-light">Our Programs</a></li>
+          <li class="mb-3"><i class="bi bi-chevron-right text-primary me-2"></i> <a href="{% url 'community' %}" class="text-light">Community</a></li>
+          <li class="mb-3"><i class="bi bi-chevron-right text-primary me-2"></i> <a href="{% url 'contact' %}" class="text-light">Contact</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 3: Programs -->
+      <div class="col-lg-2 col-md-6 footer-links">
+        <h4 class="text-white mb-4">Our Programs</h4>
+        <ul class="list-unstyled">
+          <li class="mb-3"><i class="bi bi-heart-pulse text-pink me-2"></i> <a href="{% url 'ourprograms' %}#counseling" class="text-light">Counseling</a></li>
+          <li class="mb-3"><i class="bi bi-person-arms-up text-pink me-2"></i> <a href="o{% url 'ourprograms' %}#mentorship" class="text-light">Mentorship</a></li>
+          <li class="mb-3"><i class="bi bi-shield-check text-pink me-2"></i> <a href="tel:+254734079994" class="text-light">Emergency Support</a></li>
+          <li class="mb-3"><i class="bi bi-people text-pink me-2"></i> <a href="{% url 'community' %}" class="text-light">Sisterhood Network</a></li>
+        </ul>
+      </div>
+
+      <!-- Column 4: Follow Us + Social -->
+      <div class="col-lg-4 col-md-6 text-center text-lg-start">
+        <h4 class="text-white mb-4">Stay Connected</h4>
+        <p class="mb-4">Join women rising together. Follow us for stories of hope and strength.</p>
+        <div class="social-links d-flex justify-content-center justify-content-lg-start gap-3 fs-3">
+          <a href="https://www.linkedin.com/in/herrisenow-1b40b03a0/" class="text-white hover-pink"><i class="bi bi-linkedin"></i></a>
+          
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Copyright -->
+  <div class="container copyright text-center py-4 border-top border-secondary">
+    <p class="mb-0 text-light">
+      © <span id="year"></span> <strong class="sitename text-white">HerRiseNow</strong>. All Rights Reserved.
+    </p>
+    <p class="text-muted small mt-2">
+      Made with <i class="bi bi-heart-fill text-danger"></i> For women, by women.
+    </p>
+  </div>
+</footer>
+
+<!-- Auto-update current year -->
+<script>
+  document.getElementById("year").textContent = new Date().getFullYear();
+</script>
+  </footer>
+{% block scripts %}
+  <!-- Vendor JS -->
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'vendor/aos/aos.js' %}"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  </script>
+  <script src="{% static 'vendor/aos/aos.js' %}"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    easing: 'ease-out-quart',
+    once: true
+  });
+</script>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector("form");
+    if (!form) return;
+
+    form.addEventListener("submit", function (e) {
+        e.preventDefault(); // stop normal submit
+
+        // Show your beautiful thank you
+        document.body.innerHTML = `
+            <div style="min-height:100vh;background:linear-gradient(135deg,#fce7f3,#f0d6ff);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:2rem;padding:2rem;text-align:center;">
+                <i class="bi bi-heart-fill" style="font-size:4rem;color:#ec4899;"></i>
+                <h1 class="display-4 fw-bold" style="background:linear-gradient(90deg,#ec4899,#d946ef);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">
+                    Thank You, Sister!
+                </h1>
+                <p class="lead">Your message was received.</p>
+                <p>Redirecting in <span id="countdown">3</span> seconds...</p>
+            </div>
+        `;
+
+        // Submit via fetch
+        fetch(form.action, {
+            method: "POST",
+            body: new FormData(form),
+            headers: { "X-CSRFToken": document.querySelector('[name=csrfmiddlewaretoken]').value }
+        });
+
+        // Countdown + redirect
+        let seconds = 3;
+        const countdown = setInterval(() => {
+            seconds--;
+            document.getElementById("countdown").textContent = seconds;
+            if (seconds <= 0) {
+                clearInterval(countdown);
+                const next = form.querySelector('[name="_next"]')?.value || "/";
+                window.location.href = next;
+            }
+        }, 1000);
+    });
+});
+</script>
+{% endblock %}
+ 

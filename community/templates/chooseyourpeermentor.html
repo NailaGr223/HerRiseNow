@@ -1,0 +1,168 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block styles %}
+<style>
+    :root {
+      --primary: #d946ef;
+      --secondary: #8b5cf6;
+      --accent: #ec4899;
+      --dark: #1a1a2e;
+    }
+    .hero-peer {
+      background: linear-gradient(135deg, #fce7f3, #ddd6fe);
+      min-height: 70vh;
+      display: flex;
+      align-items: center;
+      text-align: center;
+    }
+    .text-gradient {
+      background: linear-gradient(90deg, #ec4899, #d946ef, #8b5cf6);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
+    }
+    .mentor-card {
+      background: white;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.1);
+      transition: all 0.4s ease;
+      height: 100%;
+    }
+    .mentor-card:hover {
+      transform: translateY(-15px);
+      box-shadow: 0 30px 70px rgba(217,70,239,0.25);
+    }
+    .mentor-img {
+      width: 100%;
+      height: 320px;
+      object-fit: cover;
+    }
+    .btn-connect {
+      background: linear-gradient(135deg, var(--accent), #f43f5e);
+      border: none;
+      padding: 0.8rem 2rem;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: all 0.3s;
+    }
+    .btn-connect:hover {
+      transform: scale(1.05);
+      box-shadow: 0 15px 30px rgba(244,63,94,0.4);
+    }
+  </style>
+{% endblock %}
+  
+{% block content %}
+
+  
+ <main>
+  <!-- Hero -->
+  <section class="hero-peer">
+    <div class="container">
+      <h1 class="display-3 fw-bold text-gradient" data-aos="fade-up">Choose Your Peer Mentor</h1>
+      <p class="lead fs-2 mt-4 text-dark opacity-90" data-aos="fade-up" data-aos-delay="100">
+        Connect with a sister who truly understands you
+      </p>
+    </div>
+  </section>
+
+  <!-- Mentors Grid -->
+  <main class="py-5 bg-light">
+    <div class="container">
+      <div class="row g-5">
+
+        <!-- Mentor 1 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up">
+          <div class="mentor-card text-center">
+            <img src="{% static 'img/Naila.jpg' %}" alt="Naila" class="mentor-img">
+            <div class="p-4">
+              <h4 class="fw-bold">Naila Abdulhakim</h4>
+              <p class="text-muted">18· University Student · Mombasa<br>Studying Computer Science and a Whole Lot of Other Stuff| Loves growth, risks and challenges</p>
+              <p class="small text-success fw-bold">Here to challenge you to level up.</p>
+              <a href="{% url 'peermentorshipform' %}" target="_self"
+                 class="btn btn-connect text-white mt-3">Connect with Naila</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mentor 2 -->
+        <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="100">
+          <div class="mentor-card text-center">
+            <img src="{% static 'img/Fatma.jpeg' %}" alt="Ms.Fatma" class="mentor-img">
+            <div class="p-4">
+              <h4 class="fw-bold">Fatma Abdulmajid</h4>
+              <p class="text-muted">32· Young Mother · Al-Nahda,Sharjah <br>Being a Mother| Raising Children Without Passing Down Genarational Trauma</p>
+              <p class="small text-success fw-bold">Speaks English & Swahili. Co-founder of Red Carpet Salon, Mombasa</p>
+              <a href="{% url 'peermentorshipform' %}" target="_self"
+                 class="btn btn-connect text-white mt-3">Connect with Ms.Fatma</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Mentor 3 -->
+        <!-- <div class="col-lg-4 col-md-6" data-aos="fade-up" data-aos-delay="200">
+          <div class="mentor-card text-center">
+            <img src="https://images.unsplash.com/photo-1581404913221-6a9f2d4d9d8b?w=800&auto=format&fit=crop" alt="Sarah" class="mentor-img">
+            <div class="p-4">
+              <h4 class="fw-bold">Sarah W.</h4>
+              <p class="text-muted">31 · New Mom · Eldoret<br>Teacher | Balancing family & dreams</p>
+              <p class="small text-success fw-bold">Perfect for mothers</p>
+              <a href="https://forms.gle/YOUR_PEER_FORM_LINK?entry.123456789=Sarah+W." target="_blank"
+                 class="btn btn-connect text-white mt-3">Connect with Sarah</a>
+            </div>
+          </div>
+        </div> -->
+
+        <!-- Add more mentors below as needed -->
+       <div class="hero-metrics" data-aos="fade-up" data-aos-delay="400">
+          <div class="container">
+            <div class="row justify-content-center">
+              <div class="col-lg-8">
+                <div class="floating-card">
+                  <div class="card-content">
+                    <h2 class="display-4 fw-bold">
+                      <span class="text-primary">More</span> Peer Mentors
+                    </h2>
+                    <h2 class="display-4 fw-bold">
+                      Coming <span class="text-primary">Soon!</span> 💜
+                    </h2>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="text-center mt-5">
+        <p class="lead text-muted">
+          Want to become a peer mentor too? <a href="{% url 'contact' %}" class="text-primary fw-bold">Apply here</a>
+        </p>
+      </div>
+    </div>
+  </main>
+    
+ {% endblock %}
+{% block scripts %}
+
+  <!-- Vendor JS -->
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'vendor/aos/aos.js' %}"></script>
+  <script>
+    AOS.init({
+      duration: 1000,
+      once: true
+    });
+  </script>
+  <script src="{% static 'vendor/aos/aos.js' %}"></script>
+<script>
+  AOS.init({
+    duration: 1000,
+    easing: 'ease-out-quart',
+    once: true
+  });
+</script>
+{% endblock %}
+</body>
+</html>
