@@ -19,10 +19,10 @@ urlpatterns = [
     path('mentorship/', views.mentorship, name='mentorship'),
     path('ourprograms/', views.ourprograms, name='ourprograms'),
     path('register/', views.register, name='register'),
-    path('submitsponsorappform/', views.sponsorappform, name='submitsponsorappform'),
-    path('submitpartnerappform/', views.partnerappform, name='submitpartnerappform'),
-    path('submituserappform/', views.userappform, name='submituserappform'),
-    path('submitadminappform/', views.adminappform, name='submitadminappform'),
+    path('sponsorappform/', views.sponsorappform, name='sponsorappform'),
+    path('partnerappform/', views.partnerappform, name='partnerappform'),
+    path('userappform/', views.userappform, name='userappform'),
+    path('adminappform/', views.adminappform, name='adminappform'),
 
     
 

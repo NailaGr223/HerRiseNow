@@ -112,7 +112,7 @@
           <!-- Contact Form -->
           <div class="col-lg-7">
             <h3 class="fw-bold text-gradient mb-4">Send Us a Message</h3>
-            <form action="{% url 'submitcontactform' %}" method="POST" class="needs-validation" novalidate>
+            <form action="{% url 'contactform' %}" method="POST" class="needs-validation" novalidate>
              {% csrf_token %}
              <input type="hidden" name="form_type" value="General Contact">
     

@@ -64,7 +64,7 @@
 
           <!-- USER -->
           <div class="tab-pane fade show active" id="user">
-            <form action="{% url 'submituserappform' %}" method="POST" class="needs-validation" novalidate>
+            <form action="{% url 'userappform' %}" method="POST" class="needs-validation" novalidate>
               {% csrf_token %}
              <input type="hidden" name="form_type" value="User Registration">
              <input type="hidden" name="_next" value="{% url 'login' %}">
@@ -81,7 +81,7 @@
 
           <!-- PARTNER  -->
           <div class="tab-pane fade" id="partner">
-            <form action="{% url 'submitpartnerappform' %}" method="POST" class="needs-validation" novalidate>
+            <form action="{% url 'partnerappform' %}" method="POST" class="needs-validation" novalidate>
              {% csrf_token %}
              <input type="hidden" name="form_type" value="Partner Application">
               <input type="hidden" name="_next" value="{% url 'login' %}">
@@ -100,7 +100,7 @@
           <div class="tab-pane fade" id="sponsor">
             <div class="price-tag"><h3>Become a Sponsor</h3><p>Your support changes lives</p></div>
             <!-- <form id="sponsorForm" class="needs-validation" novalidate> -->
-            <form action="{% url 'submitsponserappform' %}" method="POST" class="needs-validation" novalidate>
+            <form action="{% url 'sponserappform' %}" method="POST" class="needs-validation" novalidate>
                {% csrf_token %}
                 <input type="hidden" name="form_type" value="Sponsor Registration">
                 <input type="hidden" name="_next" value="{% url 'login' %}">
@@ -141,7 +141,7 @@
             <div class="alert alert-warning text-center">
               Admin accounts require manual approval by the HerRiseNow team
             </div>
-            <form action="{% url 'submitadminappform' %}" method="POST" class="needs-validation" novalidate>
+            <form action="{% url 'adminappform' %}" method="POST" class="needs-validation" novalidate>
               {% csrf_token %}
              <input type="hidden" name="form_type" value="Admin Access Request">
              <input type="hidden" name="_next" value="{% url 'login' %}">

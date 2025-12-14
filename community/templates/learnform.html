@@ -89,7 +89,7 @@
 
           <div class="card-body p-5">
 
-            <form action="{% url 'submitlearnform' %}" method="POST">
+            <form action="{% url 'learnform' %}" method="POST">
            {% csrf_token %}
            <input type="hidden" name="form_type" value="Learn & Grow Interest">
            <input type="hidden" name="_next" value="{% url 'learn' %}">

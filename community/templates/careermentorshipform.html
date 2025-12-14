@@ -89,7 +89,7 @@
       <!-- Form Body -->
       <div class="form-body">
 
-        <form action="{% url 'submitcareermentorshipform' %}" method="POST">
+        <form action="{% url 'careermentorshipform' %}" method="POST">
          {% csrf_token %}
           <input type="hidden" name="form_type" value="Career Mentorship">
           <input type="hidden" name="_next" value="{% url 'mentorship' %}">

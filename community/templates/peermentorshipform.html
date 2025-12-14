@@ -84,7 +84,7 @@
         <p class="lead opacity-90 mb-0">Choose a sister who feels like home</p>
       </div>
 
-       <form action="{% url 'submitpeermentorshipform' %}" method="POST">
+       <form action="{% url 'peermentorshipform' %}" method="POST">
        {% csrf_token %}
        <input type="hidden" name="form_type" value="Peer Mentorship">
        <input type="hidden" name="_next" value="{% url 'mentorship' %}">
