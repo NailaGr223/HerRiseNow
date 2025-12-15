@@ -92,31 +92,31 @@
         <form action="{% url 'careermentorshipform' %}" method="POST">
          {% csrf_token %}
           <input type="hidden" name="form_type" value="Career Mentorship">
-          <input type="hidden" name="_next" value="{% url 'mentorship' %}">
+          <!-- <input type="hidden" name="_next" value="{% url 'mentorship' %}"> -->
     
 
           <!-- Full Name -->
           <div class="mb-4">
             <label class="form-label fw-bold">Full Name <span class="text-danger">*</span></label>
-            <input type="text" name="entry.123456789" class="form-control form-control-lg" placeholder="e.g. Fatuma Ali" required>
+            <input type="text" name="full_name" class="form-control form-control-lg" placeholder="e.g. Fatuma Ali" required>
           </div>
 
           <!-- Email -->
           <div class="mb-4">
             <label class="form-label fw-bold">Email Address <span class="text-danger">*</span></label>
-            <input type="email" name="entry.987654321" class="form-control form-control-lg" placeholder="fatuma@example.com" required>
+            <input type="email" name="email" class="form-control form-control-lg" placeholder="fatuma@example.com" required>
           </div>
 
           <!-- Phone -->
           <div class="mb-4">
             <label class="form-label fw-bold">Phone (WhatsApp preferred) <span class="text-danger">*</span></label>
-            <input type="tel" name="entry.112233445" class="form-control form-control-lg" placeholder="+254 712 345 678" required>
+            <input type="tel" name="phone_number" class="form-control form-control-lg" placeholder="+254 712 345 678" required>
           </div>
 
           <!-- CHOOSE YOUR MENTOR -->
           <div class="mb-4">
             <label class="form-label fw-bold">Choose Your Preferred Mentor <span class="text-danger">*</span></label>
-            <select name="entry.556677889" class="form-select form-select-lg" required>
+            <select name="preferred_mentor" class="form-select form-select-lg" required>
               <option value="" disabled selected>Select a mentor who inspires you</option>
               
               <option data-img="{% static 'img/Iman.jpeg' %}" value="Ms.Iman">
@@ -131,16 +131,16 @@
               <option data-img="{% static 'img/Fatma.jpeg' %}" value="Ms.Fatma">
                 Ms. Fatma Abdulmajid – Co-Founder, Red Carpet Salon
               </option>
-              <option value="No preference – match me with the best fit">
+              <!-- <option value="No preference – match me with the best fit">
                 No preference – match me with the best mentor for my goals
-              </option>
+              </option> -->
             </select>
           </div>
 
           <!-- Current Career Stage -->
           <div class="mb-4">
             <label class="form-label fw-bold">Current Career Stage <span class="text-danger">*</span></label>
-            <select name="entry.998877665" class="form-select form-select-lg" required>
+            <select name="currentcareerstage" class="form-select form-select-lg" required>
               <option value="" disabled selected>Where are you now?</option>
               <option>Student</option>
               <option>Recent Graduate</option>
@@ -156,14 +156,14 @@
           <!-- Your Top 3 Goals -->
           <div class="mb-4">
             <label class="form-label fw-bold">Your Top 3 Career Goals <span class="text-danger">*</span></label>
-            <textarea name="entry.443322110" class="form-control form-control-lg" rows="4" 
+            <textarea name="goals" class="form-control form-control-lg" rows="4" 
                       placeholder="1. Become a lead engineer&#10;2. Start my own company&#10;3. Get promoted to manager...&#10; feel free to add as many" required></textarea>
           </div>
 
           <!-- Anything Else -->
           <div class="mb-5">
             <label class="form-label fw-bold">Anything else we should know?</label>
-            <textarea name="entry.667788990" class="form-control" rows="3" 
+            <textarea name="anything_else" class="form-control" rows="3" 
                       placeholder="Availability, challenges, mentor traits you value, etc."></textarea>
           </div>
 
@@ -193,7 +193,7 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
-  <script>
+  <!-- <script>
   // Redirect to mentorship.html after Google Form submission
   document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector("form");
@@ -265,5 +265,5 @@
       }, 1000);
     });
   });
-</script>
+</script> -->
 {% endblock %}

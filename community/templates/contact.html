@@ -112,14 +112,14 @@
           <!-- Contact Form -->
           <div class="col-lg-7">
             <h3 class="fw-bold text-gradient mb-4">Send Us a Message</h3>
-            <form action="{% url 'contactform' %}" method="POST" class="needs-validation" novalidate>
+            <form action="" method="POST" class="needs-validation" novalidate>
              {% csrf_token %}
              <input type="hidden" name="form_type" value="General Contact">
     
    
              <div class="row g-3">
               <div class="col-md-6">
-               <input type="text" name="name" class="form-control form-control-lg" placeholder="Your Name" required>
+               <input type="text" name="full_name" class="form-control form-control-lg" placeholder="Your Name" required>
               </div>
         <div class="col-md-6">
             <input type="email" name="email" class="form-control form-control-lg" placeholder="Your Email" required>
@@ -133,7 +133,7 @@
         <!-- keep your honey-pot fields if you want -->
         <input type="text" name="_honey" style="display:none">
         <input type="hidden" name="_captcha" value="false">
-        <input type="hidden" name="_next" value="{% url 'contactform' %}">
+        
         
         <div class="col-12 text-end">
             <button type="submit" class="btn btn-submit text-white shadow-lg">Send Message</button>

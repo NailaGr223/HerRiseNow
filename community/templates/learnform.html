@@ -91,34 +91,33 @@
 
             <form action="{% url 'learnform' %}" method="POST">
            {% csrf_token %}
-           <input type="hidden" name="form_type" value="Learn & Grow Interest">
-           <input type="hidden" name="_next" value="{% url 'learn' %}">
+           <input type="hidden" name="form_type" value="Learn">
     
               <!-- Full Name -->
               <div class="mb-4">
                 <label class="form-label fw-bold">Full Name *</label>
-                <input type="text" name="entry.123456789" class="form-control form-control-lg" 
+                <input type="text" name="full_name" class="form-control form-control-lg" 
                        placeholder="e.g. Fatuma Ali" required>
               </div>
 
               <!-- Email -->
               <div class="mb-4">
                 <label class="form-label fw-bold">Email Address *</label>
-                <input type="email" name="entry.987654321" class="form-control form-control-lg" 
+                <input type="email" name="email" class="form-control form-control-lg" 
                        placeholder="fatuma@example.com" required>
               </div>
 
               <!-- Phone (WhatsApp preferred) -->
               <div class="mb-4">
                 <label class="form-label fw-bold">Phone Number (WhatsApp preferred) *</label>
-                <input type="tel" name="entry.112233445" class="form-control form-control-lg" 
+                <input type="tel" name="phone_number" class="form-control form-control-lg" 
                        placeholder="+254 712 345 678" required>
               </div>
 
               <!-- Current Education / Career Level -->
               <div class="mb-4">
                 <label class="form-label fw-bold">Your Current Stage *</label>
-                <select name="entry.556677889" class="form-select form-select-lg" required>
+                <select name="currenteducation_level" class="form-select form-select-lg" required>
                   <option value="" disabled selected>Where are you right now?</option>
                   <option>High School Student</option>
                   <option>University / College Student</option>
@@ -137,7 +136,7 @@
                 <div class="row g-3">
                   <div class="col-md-6">
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" name="entry.998877665" value="Digital Skills (Computer, Internet, MS Office)">
+                      <input class="form-check-input" type="checkbox" name="topics_of_interest" value="Digital Skills (Computer, Internet, MS Office)">
                       <label class="form-check-label">Digital Skills (Computer, Internet, MS Office)</label>
                     </div>
                     <!-- <div class="form-check">
@@ -149,13 +148,13 @@
                       <label class="form-check-label">Start Your Own Business</label>
                     </div> -->
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" name="entry.998877665" value="Public Speaking & Confidence">
+                      <input class="form-check-input" type="checkbox" name="topics_of_interest" value="Public Speaking & Confidence">
                       <label class="form-check-label">Public Speaking & Confidence</label>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" name="entry.998877665" value="Leadership Skills">
+                      <input class="form-check-input" type="checkbox" name="topics_of_interest" value="Leadership Skills">
                       <label class="form-check-label">Leadership Skills</label>
                     </div>
                     <!-- <div class="form-check">
@@ -163,11 +162,11 @@
                       <label class="form-check-label">Graphic Design / Creative Skills</label>
                     </div> -->
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" name="entry.998877665" value="English Language / Communication">
+                      <input class="form-check-input" type="checkbox" name="topics_of_interest" value="English Language / Communication">
                       <label class="form-check-label">English Language / Communication</label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" name="entry.998877665" value="Other (write below)">
+                      <input class="form-check-input" type="checkbox" name="topics_of_interest" value="Other (write below)">
                       <label class="form-check-label">Other (write below)</label>
                     </div>
                   </div>
@@ -177,14 +176,14 @@
               <!-- Other Topics (Open Text) -->
               <div class="mb-4">
                 <label class="form-label fw-bold">Any other topics or skills you’d love to learn?</label>
-                <textarea name="entry.443322110" class="form-control form-control-lg" rows="4"
+                <textarea name="other_topics" class="form-control form-control-lg" rows="4"
                           placeholder="e.g. Coding, Photography, Mental Health First Aid, Tailoring, etc."></textarea>
               </div>
 
               <!-- Preferred Learning Format -->
               <div class="mb-4">
                 <label class="form-label fw-bold">How do you prefer to learn? *</label>
-                <select name="entry.667788990" class="form-select form-select-lg" required>
+                <select name="preffered_learning_style" class="form-select form-select-lg" required>
                   <option value="" disabled selected>Choose one</option>
                   <option>In-person workshops (Mombasa only(for now))</option>
                   <option>Online live classes (Zoom/ Meet)</option>
@@ -197,7 +196,7 @@
               <!-- Availability -->
               <div class="mb-5">
                 <label class="form-label fw-bold">When are you free to learn?</label>
-                <select name="entry.223344556" class="form-select form-select-lg">
+                <select name="availability" class="form-select form-select-lg">
                   <option>Mornings (9am–12noon)</option>
                   <option>Afternoons (2pm–5pm)</option>
                   <option>Evenings (6pm–9pm)</option>
@@ -232,7 +231,7 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
-  <script>
+  <!-- <script>
   // Redirect to mentorship.html after Google Form submission
   document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector("form");
@@ -304,7 +303,7 @@
       }, 1000);
     });
   });
-</script>
+</script> -->
 {% endblock %}
 </body>
 </html>

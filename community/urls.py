@@ -15,14 +15,11 @@ urlpatterns = [
     path('counselingform/', views.counselingform, name='counselingform'),
     path('learn/', views.learn, name='learn'),
     path('learnform/', views.learnform, name='learnform'),
-    path('login/', views.login, name='login'),
     path('mentorship/', views.mentorship, name='mentorship'),
     path('ourprograms/', views.ourprograms, name='ourprograms'),
-    path('register/', views.register, name='register'),
-    path('sponsorappform/', views.sponsorappform, name='sponsorappform'),
-    path('partnerappform/', views.partnerappform, name='partnerappform'),
-    path('userappform/', views.userappform, name='userappform'),
-    path('adminappform/', views.adminappform, name='adminappform'),
+    path('delete_post/<int:post_id>/', views.delete_post, name='delete_post'),
+    path('updatepost/<int:post_id>/', views.updatepost, name='updatepost'), 
+   
 
     
 

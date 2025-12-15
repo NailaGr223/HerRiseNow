@@ -87,30 +87,30 @@
        <form action="{% url 'peermentorshipform' %}" method="POST">
        {% csrf_token %}
        <input type="hidden" name="form_type" value="Peer Mentorship">
-       <input type="hidden" name="_next" value="{% url 'mentorship' %}">
+       <!-- <input type="hidden" name="_next" value="{% url 'mentorship' %}"> -->
     
           <!-- Full Name -->
           <div class="mb-4">
             <label class="form-label fw-bold">Full Name *</label>
-            <input type="text" name="entry.123456789" class="form-control form-control-lg" placeholder="e.g. Aisha Mohamed" required>
+            <input type="text" name="full_name" class="form-control form-control-lg" placeholder="e.g. Aisha Mohamed" required>
           </div>
 
           <!-- Email -->
           <div class="mb-4">
             <label class="form-label fw-bold">Gmail Address *</label>
-            <input type="email" name="entry.987654321" class="form-control form-control-lg" placeholder="name@gmail.com" required>
+            <input type="email" name="email" class="form-control form-control-lg" placeholder="name@gmail.com" required>
           </div>
 
           <!-- Phone -->
           <div class="mb-4">
             <label class="form-label fw-bold">Phone (WhatsApp preferred) *</label>
-            <input type="tel" name="entry.112233445" class="form-control form-control-lg" placeholder="+254 712 345 678" required>
+            <input type="tel" name="phone_number" class="form-control form-control-lg" placeholder="+254 712 345 678" required>
           </div>
 
           <!-- CHOOSE YOUR PEER MENTOR -->
           <div class="mb-4">
             <label class="form-label fw-bold">Choose Your Preferred Peer Mentor *</label>
-            <select name="entry.556677889" class="form-select form-select-lg" required>
+            <select name="preferred_mentor" class="form-select form-select-lg" required>
               <option value="" disabled selected>Select a sister who inspires you</option>
 
               <option  src="assets/img/Naila.jpg" alt="Naila" class="mentor-img">
@@ -125,16 +125,16 @@
               <option data-img="https://images.unsplash.com/photo-1590650516494-0c8e4a4dd67e?w=800" value="Zainab O.">
                 Zainab O. – 25 · Tech Enthusiast · Kisumu · Coding & Confidence
               </option> -->
-              <option value="No preference – match me with someone similar">
+              <!-- <option value="No preference – match me with someone similar">
                 No preference – surprise me with the best match!
-              </option>
+              </option> -->
             </select>
           </div>
 
           <!-- Age Range -->
           <div class="mb-4">
             <label class="form-label fw-bold">Your Age Range *</label>
-            <select name="entry.998877665" class="form-select form-select-lg" required>
+            <select name="age_range" class="form-select form-select-lg" required>
               <option value="" disabled selected>Select your age group</option>
               <option>15–18</option>
               <option>19–24</option>
@@ -148,7 +148,7 @@
           <!-- What do you want to grow in? -->
           <div class="mb-4">
             <label class="form-label fw-bold">What do you most want to grow in? *</label>
-            <textarea name="entry.443322110" class="form-control form-control-lg" rows="4" 
+            <textarea name="areaofgrowth" class="form-control form-control-lg" rows="4" 
                       placeholder="e.g. confidence, career, faith, relationships, healing..." required></textarea>
           </div>
 
@@ -180,7 +180,7 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
-  <script>
+  <!-- <script>
   // Redirect to mentorship.html after Google Form submission
   document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector("form");
@@ -252,5 +252,6 @@
       }, 1000);
     });
   });
-</script>
-  {% endblock %}
+</script> -->
+ 
+{% endblock %}

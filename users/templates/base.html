@@ -1,3 +1,4 @@
+{% load static %}
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -8,8 +9,8 @@
   <meta name="keywords" content="women empowerment, GBV helpline, mentorship, female entrepreneurs">
 
   <!-- Favicons -->
-  <link href="assets/img/black filled.png" rel="icon">
-  <link href="assets/img/logo.png" rel="apple-touch-icon">
+  <link href="{% static 'img/black filled.png' %}" rel="icon">
+  <link href="{% static 'img/logo.png' %}" rel="apple-touch-icon">
 
   <!-- Google Fonts -->
   <link href="https://fonts.googleapis.com" rel="preconnect">
@@ -17,13 +18,13 @@
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700;900&family=Montserrat:wght@500;600;700;800;900&family=Playfair+Display:wght@700;800&display=swap" rel="stylesheet">
 
   <!-- Vendor CSS -->
-  <link href="assets/vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet">
-  <link href="assets/vendor/bootstrap-icons/bootstrap-icons.css" rel="stylesheet">
-  <link href="assets/vendor/aos/aos.css" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap/css/bootstrap.min.css' %}" rel="stylesheet">
+  <link href="{% static 'vendor/bootstrap-icons/bootstrap-icons.css' %}" rel="stylesheet">
+  <link href="{% static 'assets/vendor/aos/aos.css' %}" rel="stylesheet">
 
   <!-- Main CSS -->
-  <link href="assets/css/main.css" rel="stylesheet">
-
+  <link href="{% static 'css/main.css' %}" rel="stylesheet">
+{% block styles %}
   <style>
     /* ============================================================= */
     /* CUSTOM HERO + METRICS + FEATURES STYLES (Paste this in main.css or here) */
@@ -129,7 +130,7 @@
     /* Hero Section */
     .hero-section {
       min-height: 100vh;
-      background: linear-gradient(135deg, )#c0b3ff 0%, rgb(151, 4, 151) 100%, url('assets/img/hero-bg.jpg') center/cover no-repeat;
+      background: linear-gradient(135deg, )#c0b3ff 0%, rgb(151, 4, 151) 100%, url("{% static 'img/hero-bg.jpg' %}") center/cover no-repeat;
       position: relative;
       display: flex;
       align-items: center;
@@ -293,6 +294,7 @@
   color: #d946ef !important;
 }
   </style>
+  {% endblock %} 
 </head>
 <!-- Firebase SDK
 <script src="https://www.gstatic.com/firebasejs/10.14.1/firebase-app-compat.js"></script>
@@ -403,35 +405,35 @@
 
     <div class="branding" style="background: rgba(26, 26, 46, 0.95); backdrop-filter: blur(10px);">
       <div class="container position-relative d-flex align-items-center justify-content-between py-3">
-        <a href="index.html" class="logo d-flex align-items-center text-white text-decoration-none">
-          <img src="assets/img/black filled.png" alt="HerRiseNow Logo" height="50">
+        <a href="{% url 'index' %}" class="logo d-flex align-items-center text-white text-decoration-none">
+          <img src="{% static 'img/black filled.png' %}" alt="HerRiseNow Logo" height="50">
           <h1 class="sitename ms-3 mb-0">HerRiseNow</h1>
         </a>
          <nav id="navmenu" class="navmenu">
   <ul class="navbar-nav d-flex flex-row align-items-center gap-4 list-unstyled mb-0">
-    <li class="nav-item"><a href="index.html" class="nav-link  text-white">Home</a></li>
+    <li class="nav-item"><a href="{% url 'index' %}" class="nav-link  text-white">Home</a></li>
     
     <li class="nav-item dropdown">
-      <a href="about.html" class="nav-link text-white">About <i class="bi bi-chevron-down ms-1"></i></a>
+      <a href="{% url 'about' %}" class="nav-link text-white">About <i class="bi bi-chevron-down ms-1"></i></a>
       <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="about.html#abouti">About</a></li>
-        <li><a class="dropdown-item" href="about.html#nextstep">Our Next Step</a></li>
-        <li><a class="dropdown-item" href="about.html#impact">Our Impact</a></li>
+        <li><a class="dropdown-item" href="{% url 'about' %}#abouti">About</a></li>
+        <li><a class="dropdown-item" href="{% url 'about' %}#nextstep">Our Next Step</a></li>
+        <li><a class="dropdown-item" href="{% url 'about' %}#impact">Our Impact</a></li>
       </ul>
     </li>
 
     <li class="nav-item dropdown">
-      <a href="ourprograms.html" class="nav-link text-white">Our Programs <i class="bi bi-chevron-down ms-1"></i></a>
+      <a href="{% url 'ourprograms' %}" class="nav-link text-white">Our Programs <i class="bi bi-chevron-down ms-1"></i></a>
       <ul class="dropdown-menu">
-        <li><a class="dropdown-item" href="ourprograms.html#mentorship">Mentorship</a></li>
-        <li><a class="dropdown-item" href="ourprograms.html#counseling">Counseling</a></li>
-        <li><a class="dropdown-item" href="ourprograms.html#learn">Learn</a></li>
+        <li><a class="dropdown-item" href="{% url 'ourprograms' %}#mentorship">Mentorship</a></li>
+        <li><a class="dropdown-item" href="{% url 'ourprograms' %}#counseling">Counseling</a></li>
+        <li><a class="dropdown-item" href="{% url 'ourprograms' %}#learn">Learn</a></li>
       </ul>
     </li>
 
-   <li class="nav-item"><a href="community.html" class="nav-link text-white">Community</a></li>
-    <li class="nav-item"><a href="contact.html" class="nav-link text-white">Contact</a></li>
-    <li class="nav-item"><a href="login.html" class="btn btn-outline-light rounded-pill px-4">Login</a></li>
+   <li class="nav-item"><a href="{% url 'community' %}" class="nav-link text-white">Community</a></li>
+    <li class="nav-item"><a href="{% url 'contactform' %}" class="nav-link text-white">Contact</a></li>
+    <!-- <li class="nav-item"><a href="{% url 'login' %}" class="btn btn-outline-light rounded-pill px-4">Login</a></li> -->
 
     <!-- below is advanced login/logout button code -->
 
@@ -499,284 +501,8 @@
 
   <!-- Main Content -->
   <main class="main">
-
-    <!-- Hero Section -->
-    <section class="hero-section">
-      <div class="container hero-container">
-        <div class="row align-items-center">
-          <div class="col-lg-6">
-            <div class="hero-content" data-aos="fade-up">
-              <h1>HerRiseNow</h1>
-              <p>Emergency GBV Helpline⬇️</p>
-              <div class="hero-buttons mt-4">
-                <a href="tel:+254734079994" class="call-btn"> 🆘NEED HELP? CALL NOW</a>
-                <a href="assets/img/our story.mp4" target="_blank"  class="video-link d-inline-flex align-items-center gap-2">
-  <span class="play-circle-icon">
-    <i class="bi bi-play-fill"></i>
-  </span>
-  Watch Our Story
-</a>
-               <!-- <video id="heroVideo" class="w-100" controls autoplay muted playsinline>
-  <source src="assets/video/intro.mp4" type="video/mp4">
-</video> -->
-
-<script>
-  document.getElementById("heroVideo").addEventListener("ended", function() {
-    window.location.href = "index.html";  // or any page
-  });
-</script>
-<script>
-  document.getElementById("heroVideo").addEventListener("ended", function() {
-    document.body.style.transition = "opacity 1.5s";
-    document.body.style.opacity = "0";
-    setTimeout(() => {
-      window.location.href = "index.html";
-    }, 1500);
-  });
-</script>
-                <!-- <a href="assets/img/our story.mp4" target="_blank" class="video-link"> ▶ Watch Our Story</a> -->
-              </div>
-            </div>
-          </div>
-          <div class="col-lg-6 text-center">
-            <img src="assets/img/white back.png" alt="HerRiseNow" class="img-fluid" style="max-height: 400px;" data-aos="zoom-in" data-aos-delay="200">
-          </div>
-        </div>
-        <div class="row align-items-center">
-  <!-- Left side: Text + Buttons – slides in from left
-   <div class="col-lg-6">
-    <div class="hero-content" 
-         data-aos="fade-right" 
-         data-aos-duration="1000" 
-         data-aos-delay="200">
-      <h1>HerRiseNow</h1>
-      <p>Emergency GBV Helpline</p>
-      <div class="hero-buttons mt-4">
-        <a href="tel:+254734079994" class="call-btn">NEED HELP? CALL NOW</a>
-        <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="video-link">Watch Our Story</a>
-      </div>
-    </div>
-  </div> -->
-  <!-- Hero Section – Fixed alignment + background + slide-in animations -->
-<!-- <section class="hero-section">
-  <div class="container hero-container py-5"> -->
-    
-    <!-- Main Hero Row -->
-    <!-- <div class="row align-items-center min-vh-100"> -->
-      
-      <!-- Left: Text & Buttons (slide in from left) -->
-      <!-- <div class="col-lg-6 order-lg-1 order-2">
-        <div class="hero-content"
-             data-aos="fade-right"
-             data-aos-duration="1200"
-             data-aos-delay="200">
-          <h1>HerRiseNow</h1>
-          <p class="lead fw-semibold">Emergency GBV Helpline</p>
-          <div class="hero-buttons mt-4">
-            <a href="tel:+254734079994" class="call-btn">NEED HELP? CALL NOW</a>
-            <a href="https://www.youtube.com/watch?v=dQw4w9WgXcQ" target="_blank" class="video-link ms-3">Watch Our Story</a>
-          </div>
-        </div>
-      </div> -->
-
-      <!-- Right: Logo/Image (slide in from right) -->
-      <!-- <div class="col-lg-6 order-lg-2 order-1 text-center mb-5 mb-lg-0">
-        <img src="assets/img/logo.png" 
-             alt="HerRiseNow" 
-             class="img-fluid" 
-             style="max-height: 480px;"
-             data-aos="fade-left"
-             data-aos-duration="1200"
-             data-aos-delay="400">
-      </div>
-    </div> -->
-
-    <!-- Floating Card (below hero content) -->
-    <!-- <div class="hero-metrics mt-5" data-aos="fade-up" data-aos-delay="800">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col-lg-8">
-            <div class="floating-card">
-              <div class="card-content">
-                <h2 class="display-4 fw-bold">
-                  <span class="text-primary">For</span> All Women
-                </h2>
-                <h2 class="display-4 fw-bold">
-                  All <span class="text-primary">Over</span> the World
-                </h2>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div>
-
-  </div> -->
-<!-- </section> -->
-
-  <!-- Right side: Image – slides in from right
-  <div class="col-lg-6 text-center">
-    <img src="assets/img/logo.png" 
-         alt="HerRiseNow" 
-         class="img-fluid" 
-         style="max-height: 420px;"
-         data-aos="fade-left"
-         data-aos-duration="1000"
-         data-aos-delay="400">
-  </div>
-</div>
-
-        <!Floating Card: For All Women... -->
-        <div class="hero-metrics" data-aos="fade-up" data-aos-delay="400">
-          <div class="container">
-            <div class="row justify-content-center">
-              <div class="col-lg-8">
-                <div class="floating-card">
-                  <div class="card-content">
-                    <h2 class="display-4 fw-bold">
-                      <span class="text-primary">For</span> All Women
-                    </h2>
-                    <h2 class="display-4 fw-bold">
-                      All <span class="text-primary">Over</span> the World
-                    </h2>
-                  </div>
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section> 
-
-    <!-- Features Section -->
-    <section class="hero-features">
-      <div class="container">
-        <div class="row">
-          <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="100">
-            <div class="feature-item">
-              <div class="icon"><i class="bi bi-graph-up"></i></div>
-              <h4>Strategic Growth</h4>
-              <p>Accelerate your personal and professional journey with proven support systems</p>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="200">
-            <div class="feature-item">
-              <div class="icon"><i class="bi bi-lightbulb"></i></div>
-              <h4>Safe Space</h4>
-              <p>Confidential counseling and emotional support when you need it most</p>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="300">
-            <div class="feature-item">
-              <div class="icon"><i class="bi bi-people"></i></div>
-              <h4>Strong Community</h4>
-              <p>Join women supporting each other globally</p>
-            </div>
-          </div>
-          <div class="col-lg-3 col-md-6 mb-4" data-aos="fade-up" data-aos-delay="400">
-            <div class="feature-item">
-              <div class="icon"><i class="bi bi-shield-check"></i></div>
-              <h4>24/7 Emergency Help</h4>
-              <p>Immediate assistance for gender-based violence victims</p>
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-     <!-- Our Programs / Services Section -->
-<section id="featured-services" class="featured-services section py-5" style="background: #fdf8ff;">
-  <div class="container">
-
-    <!-- Section Title -->
-    <div class="text-center mb-5" data-aos="fade-up">
-      <h2 class="display-5 fw-bold">
-        <span style="background: linear-gradient(90deg, #6d28d9, #d946ef); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
-          Our Programs & Support
-        </span>
-      </h2>
-      <p class="lead text-muted">Safe, confidential, and empowering services designed for women, by women.</p>
-    </div>
-
-    <div class="row g-5 justify-content-center">
-
-      <!-- Service 1: Emergency Helpline -->
-      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="100">
-        <div class="service-item text-center p-4 rounded-4 shadow-sm bg-white h-100 d-flex flex-column justify-content-between"
-             style="transition: all 0.4s ease; border: 1px solid #f0e6ff;">
-          <div>
-            <div class="service-icon mb-4">
-              <i class="bi bi-telephone-forward-fill fs-1" style="color: #ef4444;"></i>
-            </div>
-            <h3 class="h4 fw-bold text-dark">24/7 Emergency Helpline</h3>
-            <p class="text-muted small">Immediate support for survivors of gender-based violence. Call anytime, anywhere.</p>
-          </div>
-          <a href="tel:+254734079994" class="service-link mt-3 text-danger fw-bold d-inline-flex align-items-center gap-2">
-            <span>Call Now</span>
-            <i class="bi bi-arrow-right-circle-fill"></i>
-          </a>
-        </div>
-      </div>
-
-      <!-- Service 2: Counseling -->
-      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="200">
-        <div class="service-item text-center p-4 rounded-4 shadow-sm bg-white h-100 d-flex flex-column justify-content-between"
-             style="transition: all 0.4s ease; border: 1px solid #f0e6ff;">
-          <div>
-            <div class="service-icon mb-4">
-              <i class="bi bi-heart-pulse-fill fs-1" style="color: #d946ef;"></i>
-            </div>
-            <h3 class="h4 fw-bold text-dark">Counseling & Therapy</h3>
-            <p class="text-muted small">One-on-one emotional support from trained female counselors.</p>
-          </div>
-          <a href="ourprograms.html#counselling" class="service-link mt-3 fw-bold d-inline-flex align-items-center gap-2"
-             style="color: #8b5cf6;">
-            <span>Learn More</span>
-            <i class="bi bi-arrow-right-circle-fill"></i>
-          </a>
-        </div>
-      </div>
-
-      <!-- Service 3: Mentorship -->
-      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="300">
-        <div class="service-item text-center p-4 rounded-4 shadow-sm bg-white h-100 d-flex flex-column justify-content-between"
-             style="transition: all 0.4s ease; border: 1px solid #f0e6ff;">
-          <div>
-            <div class="service-icon mb-4">
-              <i class="bi bi-person-arms-up fs-1" style="color: #a855f7;"></i>
-            </div>
-            <h3 class="h4 fw-bold text-dark">Mentorship Program</h3>
-            <p class="text-muted small">Connect with successful women leaders who guide your growth.</p>
-          </div>
-          <a href="ourprograms.html#mentorship" class="service-link mt-3 fw-bold d-inline-flex align-items-center gap-2"
-             style="color: #ec4899;">
-            <span>Join Now</span>
-            <i class="bi bi-arrow-right-circle-fill"></i>
-          </a>
-        </div>
-      </div>
-
-      <!-- Service 4: Community & Learning -->
-      <div class="col-lg-3 col-md-6" data-aos="fade-up" data-aos-delay="400">
-        <div class="service-item text-center p-4 rounded-4 shadow-sm bg-white h-100 d-flex flex-column justify-content-between"
-             style="transition: all 0.4s ease; border: 1px solid #f0e6ff;">
-          <div>
-            <div class="service-icon mb-4">
-              <i class="bi bi-people-fill fs-1" style="color: #6d28d9;"></i>
-            </div>
-            <h3 class="h4 fw-bold text-dark">Community & Learning</h3>
-            <p class="text-muted small">Workshops, webinars, and a safe sisterhood network worldwide.</p>
-          </div>
-          <a href="community.html" class="service-link mt-3 fw-bold d-inline-flex align-items-center gap-2"
-             style="color: #8b5cf6;">
-            <span>Explore Community</span>
-            <i class="bi bi-arrow-right-circle-fill"></i>
-          </a>
-        </div>
-      </div>
-
-    </div>
-  </div>
-</section>
+    {% block content %}
+    {% endblock %}
 
   </main>
   <footer>
@@ -787,8 +513,8 @@
 
       <!-- Column 1: Brand + Mission -->
       <div class="col-lg-4 col-md-6 footer-about">
-        <a href="index.html" class="d-flex align-items-center justify-content-center justify-content-lg-start mb-4">
-          <img src="assets/img/white back.png" alt="HerRiseNow" height="50" class="me-3">
+        <a href="{% url 'index' %}" class="d-flex align-items-center justify-content-center justify-content-lg-start mb-4">
+          <img src="{% static 'img/white back.png' %}" alt="HerRiseNow" height="50" class="me-3">
           <span class="sitename fw-bold fs-3 text-white">HerRiseNow</span>
         </a>
         <p class="mb-4 lead">
@@ -805,11 +531,11 @@
       <div class="col-lg-2 col-md-6 footer-links">
         <h4 class="text-white mb-4">Quick Links</h4>
         <ul class="list-unstyled">
-          <li class="mb-3"><i class="bi bi-chevron-right text-primary me-2"></i> <a href="index.html" class="text-light">Home</a></li>
-          <li class="mb-3"><i class="bi bi-chevron-right text-primary me-2"></i> <a href="about.html" class="text-light">About Us</a></li>
-          <li class="mb-3"><i class="bi bi-chevron-right text-primary me-2"></i> <a href="ourprograms.html" class="text-light">Our Programs</a></li>
-          <li class="mb-3"><i class="bi bi-chevron-right text-primary me-2"></i> <a href="community.html" class="text-light">Community</a></li>
-          <li class="mb-3"><i class="bi bi-chevron-right text-primary me-2"></i> <a href="contact.html" class="text-light">Contact</a></li>
+          <li class="mb-3"><i class="bi bi-chevron-right text-primary me-2"></i> <a href="{% url 'index' %}" class="text-light">Home</a></li>
+          <li class="mb-3"><i class="bi bi-chevron-right text-primary me-2"></i> <a href="{% url 'about' %}" class="text-light">About Us</a></li>
+          <li class="mb-3"><i class="bi bi-chevron-right text-primary me-2"></i> <a href="{% url 'ourprograms' %}" class="text-light">Our Programs</a></li>
+          <li class="mb-3"><i class="bi bi-chevron-right text-primary me-2"></i> <a href="{% url 'community' %}" class="text-light">Community</a></li>
+          <li class="mb-3"><i class="bi bi-chevron-right text-primary me-2"></i> <a href="{% url 'contactform' %}" class="text-light">Contact</a></li>
         </ul>
       </div>
 
@@ -817,10 +543,10 @@
       <div class="col-lg-2 col-md-6 footer-links">
         <h4 class="text-white mb-4">Our Programs</h4>
         <ul class="list-unstyled">
-          <li class="mb-3"><i class="bi bi-heart-pulse text-pink me-2"></i> <a href="ourprograms.html#counseling" class="text-light">Counseling</a></li>
-          <li class="mb-3"><i class="bi bi-person-arms-up text-pink me-2"></i> <a href="ourprograms.html#mentorship" class="text-light">Mentorship</a></li>
+          <li class="mb-3"><i class="bi bi-heart-pulse text-pink me-2"></i> <a href="{% url 'ourprograms' %}#counseling" class="text-light">Counseling</a></li>
+          <li class="mb-3"><i class="bi bi-person-arms-up text-pink me-2"></i> <a href="o{% url 'ourprograms' %}#mentorship" class="text-light">Mentorship</a></li>
           <li class="mb-3"><i class="bi bi-shield-check text-pink me-2"></i> <a href="tel:+254734079994" class="text-light">Emergency Support</a></li>
-          <li class="mb-3"><i class="bi bi-people text-pink me-2"></i> <a href="community.html" class="text-light">Sisterhood Network</a></li>
+          <li class="mb-3"><i class="bi bi-people text-pink me-2"></i> <a href="{% url 'community' %}" class="text-light">Sisterhood Network</a></li>
         </ul>
       </div>
 
@@ -853,17 +579,17 @@
   document.getElementById("year").textContent = new Date().getFullYear();
 </script>
   </footer>
-
+{% block scripts %}
   <!-- Vendor JS -->
-  <script src="assets/vendor/bootstrap/js/bootstrap.bundle.min.js"></script>
-  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="{% static 'vendor/bootstrap/js/bootstrap.bundle.min.js' %}"></script>
+  <script src="{% static 'vendor/aos/aos.js' %}"></script>
   <script>
     AOS.init({
       duration: 1000,
       once: true
     });
   </script>
-  <script src="assets/vendor/aos/aos.js"></script>
+  <script src="{% static 'vendor/aos/aos.js' %}"></script>
 <script>
   AOS.init({
     duration: 1000,
@@ -871,5 +597,46 @@
     once: true
   });
 </script>
-</body>
-</html>
+<script>
+document.addEventListener("DOMContentLoaded", function () {
+    const form = document.querySelector("form");
+    if (!form) return;
+
+    form.addEventListener("submit", function (e) {
+        e.preventDefault(); // stop normal submit
+
+        // Show your beautiful thank you
+        document.body.innerHTML = `
+            <div style="min-height:100vh;background:linear-gradient(135deg,#fce7f3,#f0d6ff);display:flex;align-items:center;justify-content:center;flex-direction:column;gap:2rem;padding:2rem;text-align:center;">
+                <i class="bi bi-heart-fill" style="font-size:4rem;color:#ec4899;"></i>
+                <h1 class="display-4 fw-bold" style="background:linear-gradient(90deg,#ec4899,#d946ef);-webkit-background-clip:text;-webkit-text-fill-color:transparent;">
+                    Thank You, Sister!
+                </h1>
+                <p class="lead">Your message was received.</p>
+                <p>Redirecting in <span id="countdown">3</span> seconds...</p>
+            </div>
+        `;
+
+        // Submit via fetch
+        fetch(form.action, {
+            method: "POST",
+            body: new FormData(form),
+            headers: { "X-CSRFToken": document.querySelector('[name=csrfmiddlewaretoken]').value }
+        });
+
+        // Countdown + redirect
+        let seconds = 3;
+        const countdown = setInterval(() => {
+            seconds--;
+            document.getElementById("countdown").textContent = seconds;
+            if (seconds <= 0) {
+                clearInterval(countdown);
+                const next = form.querySelector('[name="_next"]')?.value || "/";
+                window.location.href = next;
+            }
+        }, 1000);
+    });
+});
+</script>
+{% endblock %}
+ 

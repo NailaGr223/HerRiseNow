@@ -89,32 +89,32 @@
             <form action="{% url 'counselingform' %}" method="POST">
               {% csrf_token %}
              <input type="hidden" name="form_type" value="Counseling Request">
-             <input type="hidden" name="_next" value="{% url 'counseling' %}">
+             <!-- <input type="hidden" name="_next" value="{% url 'counseling' %}"> -->
     
               
               <!-- Full Name -->
               <div class="mb-4">
                 <label class="form-label fw-bold">Full Name *</label>
-                <input type="text" name="entry.123456789" class="form-control form-control-lg" placeholder="e.g. Aisha Mohamed" required>
+                <input type="text" name="full_name" class="form-control form-control-lg" placeholder="e.g. Aisha Mohamed" required>
               </div>
 
               <!-- Email -->
               <div class="mb-4">
                 <label class="form-label fw-bold">Email Address *</label>
-                <input type="email" name="entry.987654321" class="form-control form-control-lg" placeholder="aisha@example.com" required>
+                <input type="email" name="email" class="form-control form-control-lg" placeholder="aisha@example.com" required>
               </div>
 
               <!-- Phone (WhatsApp preferred) -->
               <div class="mb-4">
                 <label class="form-label fw-bold">Phone Number (WhatsApp preferred) *</label>
-                <input type="tel" name="entry.112233445" class="form-control form-control-lg" placeholder="+254 712 345 678" required>
+                <input type="tel" name="phone_number" class="form-control form-control-lg" placeholder="+254 712 345 678" required>
               </div>
 
               <!-- Choose Counselor -->
               <div class="mb-4">
                 <label class="form-label fw-bold">Preferred Counselor *</label>
-                <select name="entry.556677889" class="form-select form-select-lg">
-                  <option value="">No preference – match me with the best fit</option>
+                <select name="preferred_counselor" class="form-select form-select-lg">
+                  <!-- <option value="">No preference – match me with the best fit</option> -->
                   <option>Ms.Nahya Ebrahim – B.A in Sociology</option>
                   <!-- <option>Dr. Grace Njeri – Clinical Psychologist</option>
                   <option>Sister Fatuma Ali – Youth & Faith-Based Support</option> -->
@@ -127,29 +127,29 @@
                 <div class="row g-3">
                   <div class="col-md-6">
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" name="entry.998877665" value="GBV / Abuse">
+                      <input class="form-check-input" type="checkbox" name="what_brings_you_here" value="GBV / Abuse">
                       <label class="form-check-label">GBV / Abuse</label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" name="entry.998877665" value="Anxiety / Stress">
+                      <input class="form-check-input" type="checkbox" name="what_brings_you_here" value="Anxiety / Stress">
                       <label class="form-check-label">Anxiety / Stress</label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" name="entry.998877665" value="Depression">
+                      <input class="form-check-input" type="checkbox" name="what_brings_you_here" value="Depression">
                       <label class="form-check-label">Depression</label>
                     </div>
                   </div>
                   <div class="col-md-6">
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" name="entry.998877665" value="Self-worth / Confidence">
+                      <input class="form-check-input" type="checkbox" name="what_brings_you_here" value="Self-worth / Confidence">
                       <label class="form-check-label">Self-worth / Confidence</label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" name="entry.998877665" value="Relationships">
+                      <input class="form-check-input" type="checkbox" name="what_brings_you_here" value="Relationships">
                       <label class="form-check-label">Relationships / Family</label>
                     </div>
                     <div class="form-check">
-                      <input class="form-check-input" type="checkbox" name="entry.998877665" value="Other">
+                      <input class="form-check-input" type="checkbox" name="what_brings_you_here" value="Other">
                       <label class="form-check-label">Other (explain below)</label>
                     </div>
                   </div>
@@ -159,14 +159,14 @@
               <!-- More Details -->
               <div class="mb-4">
                 <label class="form-label fw-bold">Tell us more (optional but helpful)</label>
-                <textarea name="entry.443322110" class="form-control form-control-lg" rows="5"
+                <textarea name="tell_us_more" class="form-control form-control-lg" rows="5"
                           placeholder="Share as much or as little as you’re comfortable with... We’re here to listen."></textarea>
               </div>
 
               <!-- Preferred Contact Time -->
               <div class="mb-5">
                 <label class="form-label fw-bold">Best time to reach you *</label>
-                <select name="entry.667788990" class="form-select form-select-lg">
+                <select name="preferred_schedule" class="form-select form-select-lg">
                   <option>Morning (9am–12noon)</option>
                   <option>Afternoon (12noon–5pm)</option>
                   <option>Evening (5pm–9pm)</option>
@@ -201,7 +201,7 @@
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
   </script>
-  <script>
+  <!-- <script>
   // Redirect to mentorship.html after Google Form submission
   document.addEventListener("DOMContentLoaded", function () {
     const form = document.querySelector("form");
@@ -273,7 +273,7 @@
       }, 1000);
     });
   });
-</script>
+</script> -->
 {% endblock %}
 </body>
 </html>
