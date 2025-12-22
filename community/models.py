@@ -68,3 +68,11 @@ class Post(models.Model):
 
     def __str__(self):
         return self.poster
+
+class Donation(models.Model):
+    
+    phone_number = models.CharField(max_length=20)
+    amount = models.DecimalField(max_digits=10, decimal_places=2)
+   
+    def __str__(self):
+        return f"{self.full_name} - {self.amount} ({self.frequency})"

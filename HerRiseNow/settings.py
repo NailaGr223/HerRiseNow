@@ -11,6 +11,8 @@ https://docs.djangoproject.com/en/6.0/ref/settings/
 """
 
 from pathlib import Path
+from dotenv import load_dotenv
+import os
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -40,10 +42,13 @@ INSTALLED_APPS = [
     'rolepermissions',
     'community',
     'users',
+    'django_daraja',
+    'chatterbot.ext.django_chatterbot',
+    'chatbot',
     
 ]
 ROLEPERMISSIONS_MODULE = 'users.roles'
-AUTH_USER_MODEL = 'users.CustomUser'
+# AUTH_USER_MODEL = 'users.CustomUser'
 
 
 MIDDLEWARE = [
@@ -125,3 +130,28 @@ STATIC_URL = 'static/'
 STATICFILES_DIRS = [
     BASE_DIR / 'static'
 ]
+MPESA_ENVIRONMENT = 'sandbox'
+MPESA_CONSUMER_KEY = 'ZPxVEcwG52MpYMSnxcnyUVTkAgy8Cn1dSwUP1hnSmDWOWkr1'
+MPESA_CONSUMER_SECRET = 'qQYkNG7h15RGkzYZ7A6b20IvGn2J3j57aSHNiZvBwjpZi2tkflXF5mxIB1p0pALO'
+MPESA_EXPRESS_SHORTCODE = '174379'
+MPESA_PASSKEY = 'bfb279f9aa9bdbcf158e97dd71a467cd2e0c893059b10f78e6b72ada1ed2c919'
+INITIATOR_NAME = 'testapi'
+SECURITY_CREDENTIAL = 'Safaricom123!!'
+B2C_SHORTCODE = '174379'
+
+CHATTERBOT = {
+    'name': 'HerRiseNow Bot',
+    'logic_adapters': [
+        'chatterbot.logic.BestMatch',
+    ],
+    'trainer': 'chatterbot.trainers.ChatterBotCorpusTrainer',
+    'training_data': [
+        'chatterbot.corpus.english.greetings',
+        'chatterbot.corpus.english.conversations',
+    ]
+}
+LOGIN_REDIRECT_URL = 'users/dashboard'
+LOGOUT_REDIRECT_URL = 'users/login'
+
+load_dotenv()  # This loads the .env file
+GEMINI_API_KEY = os.getenv('GEMINI_API_KEY')

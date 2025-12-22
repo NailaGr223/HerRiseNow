@@ -1,5 +1,6 @@
 from django.shortcuts import render, redirect
 from django.contrib import messages
+from django_daraja.mpesa.core import MpesaClient
 from community.models import * 
 
 def index(request):
@@ -163,5 +164,53 @@ def ourprograms(request):
 #     return render(request, 'contactform.html')
 # def contact(request):
 #     return render(request, 'contact.html')
+def donation(request):
+    message = None
+    error = None
 
+    if request.method == 'POST':
+        phone_number = request.POST.get('phone_number')
+        amount_str = request.POST.get('amount')
 
+        # Basic validation
+        if not phone_number or not amount_str:
+            error = "Please fill in both phone number and amount."
+        else:
+            try:
+                amount = int(amount_str)
+                if amount < 1:
+                    raise ValueError("Amount must be at least 1 KES")
+
+                # Build callback URL properly
+                callback_url = request.build_absolute_uri(reverse('mpesa_callback'))  # Better: use reverse()
+                # OR if you don't have a named URL: request.build_absolute_uri('/mpesa_callback/')
+
+                account_reference = "Donation"
+                description = "Donation to Community"
+
+                client = MpesaClient()
+                response = client.stk_push(
+                    phone_number=phone_number,
+                    amount=amount,
+                    account_reference=account_reference,
+                    transaction_desc=description,
+                    callback_url=callback_url
+                )
+
+                # response is usually a dict-like object
+                if response.response_description == "Success":
+                    message = "Payment request sent! Check your phone to complete via M-Pesa."
+                else:
+                    error = f"Request failed: {response.response_description}"
+
+            except ValueError as e:
+                error = "Invalid amount – must be a whole number (e.g., 100)"
+            except Exception as e:
+                error = f"M-Pesa error: {str(e)}"
+
+    # This runs on GET or after POST (success/error)
+    return render(request, 'donation.html', {
+        'message': message,
+        'error': error
+    })
+   

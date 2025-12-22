@@ -1,0 +1,16 @@
+# In .gitignore (create or edit it in the root)
+.env
+*.env
+# Python / Django
+__pycache__/
+*.pyc
+*.pyo
+*.pyd
+*.sqlite3
+db.sqlite3
+
+# Virtual environments
+venv/
+env/
+.env
+.env.local

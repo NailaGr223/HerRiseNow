@@ -1,0 +1,70 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+<div class="container py-5">
+    <div class="text-center mb-5">
+        <h1 class="display-4 fw-bold" style="background: linear-gradient(90deg, #d946ef, #8b5cf6); -webkit-background-clip: text; -webkit-text-fill-color: transparent;">
+            Welcome Back, {{ user.username }} 💜
+        </h1>
+        <p class="lead text-muted">You're safe, seen, and supported here.</p>
+    </div>
+
+    <div class="row g-4">
+        <!-- Learning Progress Card -->
+        <div class="col-lg-6">
+            <div class="card h-100 border-0 shadow-lg" style="border-radius: 25px; background: linear-gradient(135deg, #f8f9ff, #ffffff);">
+                <div class="card-body p-5">
+                    <h3 class="card-title text-purple mb-4">Your Learning Progress</h3>
+                    <div class="progress mb-4" style="height: 30px; border-radius: 50px; overflow: hidden;">
+                        <div class="progress-bar fw-bold" role="progressbar" style="width: {{ progress_percentage }}%; background: linear-gradient(135deg, #d946ef, #8b5cf6);" aria-valuenow="{{ progress_percentage }}" aria-valuemin="0" aria-valuemax="100">
+                            {{ progress_percentage }}% Complete
+                        </div>
+                    </div>
+                    <ul class="list-group list-group-flush">
+                        {% for prog in progress %}
+                            <li class="list-group-item d-flex justify-content-between align-items-center py-3">
+                                {{ prog.course.title }}
+                                <span class="badge rounded-pill" style="background: {% if prog.completed %}#10b981{% else %}#8b5cf6{% endif %};">
+                                    {% if prog.completed %}Completed ✓{% else %}{{ prog.progress_percentage }}%{% endif %}
+                                </span>
+                            </li>
+                        {% empty %}
+                            <li class="list-group-item text-center text-muted py-4">
+                                No courses started yet — begin your journey today! 💜
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+
+        <!-- Recent Activity Card -->
+        <div class="col-lg-6">
+            <div class="card h-100 border-0 shadow-lg" style="border-radius: 25px; background: linear-gradient(135deg, #f8f9ff, #ffffff);">
+                <div class="card-body p-5">
+                    <h3 class="card-title text-purple mb-4">Recent Activity</h3>
+                    <ul class="list-group list-group-flush">
+                        {% for activity in activities %}
+                            <li class="list-group-item d-flex justify-content-between py-3">
+                                <span>{{ activity.action }}</span>
+                                <small class="text-muted">{{ activity.timestamp|date:"M d, Y" }}</small>
+                            </li>
+                        {% empty %}
+                            <li class="list-group-item text-center text-muted py-4">
+                                Your journey starts now — every step will appear here 💜
+                            </li>
+                        {% endfor %}
+                    </ul>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <div class="text-center mt-5">
+        <a href="{% url 'index' %}" class="btn btn-lg px-5 py-3" style="background: linear-gradient(135deg, #d946ef, #8b5cf6); color: white; border-radius: 50px; font-weight: bold;">
+            Explore HerRiseNow
+        </a>
+    </div>
+</div>
+{% endblock %}

@@ -45,6 +45,7 @@
     .amount-btn.active { background:linear-gradient(135deg,var(--primary),var(--secondary))!important; color:white!important; }
   </style>
 {% endblock %}
+
 {% block content %}
 
   <main>
@@ -55,21 +56,38 @@
           <h1 class="display-5 fw-bold text-gradient">Make a donation</h1>
           <p class="lead opacity-90">Help our sisterhood</p>
         </div>
+        <div class= "form-body">
+            <form action="{% url 'donation' %}" method="POST">
+               {% csrf_token %}
+               <input type="hidden" name="form_type" value="donation">
+               <!-- <div class="mb-4"><label class="form-label fw-bold">Full Name *</label><input type="text" name="full_name" class="form-control form-control-lg" placeholder="Your full name" required></div> -->
+              <!-- <div class="mb-4">
+            <label class="form-label fw-bold">Email Address <span class="text-danger">*</span></label>
+            <input type="email" name="email" class="form-control form-control-lg" placeholder="fatuma@example.com" required>
+          </div> -->
 
-       
-
-          <!-- SPONSOR – FULLY WORKING -->
+          <!-- Phone -->
+          <div class="mb-4">
+            <label class="form-label fw-bold">Phone  <span class="text-danger">*</span></label>
+            <input type="tel" name="phone_number" class="form-control form-control-lg" placeholder="+254 712 345 678" required>
+          </div>
+          <div class="mb-4">
+            <label class="form-label fw-bold">Amount</label>
+            <input type="number" name="amount" class="form-control form-control-lg" placeholder="Enter donation amount" required>
+          </div>
+          <!-- SPONSOR – FULLY WORKING
           <div class="tab-pane fade" id="sponsor">
             <div class="price-tag"><h3>Make a donation</h3><p>Your support changes lives</p></div>
-            <!-- <form id="sponsorForm" class="needs-validation" novalidate> -->
-            <form action="" method="POST" class="needs-validation" novalidate>
-               {% csrf_token %}
+             <form id="sponsorForm" class="needs-validation" novalidate> -->
+            <!-- <form action="" method="POST" class="needs-validation" novalidate>
+               {% csrf_token %} --> 
                 
    
+               <!-- <div class="mb-4"><label class="form-label fw-bold">Full Name *</label><input type="text" id="sponsor_name" class="form-control form-control-lg" placeholder="Your full name" required></div>
+               <div class="mb-4"><label class="form-label fw-bold">Email Address *</label><input type="email" id="sponsor_email" class="form-control form-control-lg" placeholder="Email address" required></div>
+                <div class="mb-4"><label class="form-label fw-bold">Phone *</label><input type="tel" id="sponsor_phone" class="form-control form-control-lg" placeholder="+254..." required></div> -->
                 
-                <div class="mb-4"><label class="form-label fw-bold">Phone *</label><input type="tel" id="sponsor_phone" class="form-control form-control-lg" placeholder="+254..." required></div>
-                
-               <div class="mb-4">
+               <!-- <div class="mb-4">
                 <label class="form-label fw-bold">Choose Amount *</label>
                 <div class="row g-3 mb-3">
                   <div class="col-4"><button type="button" class="btn btn-outline-primary w-100 amount-btn" data-amount="10">$10</button></div>
@@ -87,8 +105,8 @@
                     <option value="monthly">Monthly</option>
                     <option value="yearly">Yearly</option>
                   </select>
-                </div>
-                <div class="text-center mt-3"><strong id="live-preview" style="color:var(--primary)">$0 one-time</strong></div>
+                </div> -->
+                <!-- <div class="text-center mt-3"><strong id="live-preview" style="color:var(--primary)">$0 one-time</strong></div> -->
               </div>
 
               <button type="submit" class="btn btn-register w-100">Proceed to Payment</button>
@@ -104,7 +122,7 @@
   {% block scripts %}
 
 
-  <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+  <!-- <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
   <script>
     document.getElementById("year").textContent = new Date().getFullYear();
 
@@ -148,5 +166,6 @@
         }, false);
       });
     })();
-  </script>
+  </script> -->
   {% endblock %}
+

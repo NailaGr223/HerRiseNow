@@ -19,6 +19,7 @@ urlpatterns = [
     path('ourprograms/', views.ourprograms, name='ourprograms'),
     path('delete_post/<int:post_id>/', views.delete_post, name='delete_post'),
     path('updatepost/<int:post_id>/', views.updatepost, name='updatepost'), 
+    path('donation/', views.donation, name='donation'),
    
 
     
