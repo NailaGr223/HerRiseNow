@@ -14,3 +14,18 @@ venv/
 env/
 .env
 .env.local
+# Sensitive files
+.env
+*.env
+db.sqlite3
+
+# Python bytecode
+__pycache__/
+*.py[cod]
+*.pyc
+*.pyo
+*.pyd
+
+# IDE / editor files
+.vscode/
+.idea/
